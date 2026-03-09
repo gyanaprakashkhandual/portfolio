@@ -75,15 +75,6 @@ const sections: Section[] = [
 export default function PrivacyPage() {
   return (
     <div className="flex-1 flex flex-col min-h-screen bg-white dark:bg-gray-950">
-      {/* Top bar */}
-      <div className="px-6 py-5 border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950">
-        <p className="text-[11px] text-gray-400 dark:text-gray-500 uppercase tracking-widest font-medium mb-0.5">
-          Legal
-        </p>
-        <h1 className="text-xl font-bold text-gray-900 dark:text-white tracking-tight">
-          Privacy Policy
-        </h1>
-      </div>
 
       <div className="flex-1 overflow-auto">
         <div className="max-w-3xl mx-auto px-6 py-8">
