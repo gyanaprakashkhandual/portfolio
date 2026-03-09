@@ -5,6 +5,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import { api } from "@/configs/env.config";
 import {
   Search,
   X,
@@ -14,7 +15,7 @@ import {
   Check,
 } from "lucide-react";
 
-const BASE_URL = "http://localhost:5000/api/projects";
+const BASE_URL = api.projects;
 
 interface Project {
   projectName: string;

@@ -4,6 +4,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { api } from "@/configs/env.config";
 import {
   Search,
   X,
@@ -24,7 +25,7 @@ import {
   Cpu,
 } from "lucide-react";
 
-const BASE_URL = "http://localhost:5000/api/skills";
+const BASE_URL = api.skills;
 
 interface Skill {
   skillName: string;

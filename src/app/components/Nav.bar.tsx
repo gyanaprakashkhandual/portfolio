@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Sun, Moon, Menu, X } from "lucide-react";
 import { FaCoffee } from "react-icons/fa";
 import { useTheme } from "../context/Theme.context";
+import { Tooltip } from "./ui/Tooltip.ui";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface NavLink {
@@ -168,7 +169,9 @@ export default function Navbar() {
                           transition={{ duration: 0.2, ease: "easeOut" }}
                           className="flex"
                         >
-                          <Moon className="w-4 h-4" strokeWidth={1.8} />
+                          
+                            <Moon className="w-4 h-4" strokeWidth={1.8} />
+                         
                         </motion.span>
                       )}
                     </AnimatePresence>

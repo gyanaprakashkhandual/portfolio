@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { api } from "@/configs/env.config";
 import {
   GraduationCap,
   MapPin,
@@ -11,7 +12,7 @@ import {
   AlertTriangle,
 } from "lucide-react";
 
-const BASE_URL = "http://localhost:5000/api/education";
+const BASE_URL = api.education;
 
 interface Duration {
   start: string | null;

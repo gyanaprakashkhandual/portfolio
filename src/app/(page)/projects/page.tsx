@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import { api } from "@/configs/env.config";
 import {
   FolderOpen,
   ExternalLink,
@@ -13,7 +14,7 @@ import {
   Layers,
 } from "lucide-react";
 
-const BASE_URL = "http://localhost:5000/api/projects";
+const BASE_URL = api.projects;
 
 interface Project {
   projectName: string;

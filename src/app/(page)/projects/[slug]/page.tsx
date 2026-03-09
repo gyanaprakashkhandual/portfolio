@@ -4,6 +4,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import { api } from "@/configs/env.config";
 import {
   ArrowLeft,
   ExternalLink,
@@ -20,7 +21,7 @@ import {
   Code2,
 } from "lucide-react";
 
-const BASE_URL = "http://localhost:5000/api/projects";
+const BASE_URL = api.projects;
 
 interface Contributor {
   name: string;

@@ -4,6 +4,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import { api, getMusicActivityUrl } from "@/configs/env.config";
 import {
   ArrowLeft,
   Play,
@@ -28,8 +29,8 @@ import {
   SmilePlus,
 } from "lucide-react";
 
-const BASE_URL = "http://localhost:5000/api/music";
-const ACTIVITY_URL = (id: string) => `http://localhost:5000/api/music/${id}`;
+const BASE_URL = api.music;
+const ACTIVITY_URL = getMusicActivityUrl;
 
 // ── Hardcoded demo userId (replace with real auth) ────────────────────────────
 const DEMO_USER_ID = "507f1f77bcf86cd799439011";

@@ -5,6 +5,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import { api } from "@/configs/env.config";
 import {
   Search,
   X,
@@ -15,7 +16,7 @@ import {
   Calendar,
 } from "lucide-react";
 
-const BASE_URL = "http://localhost:5000/api/blogs";
+const BASE_URL = api.blogs;
 
 interface Blog {
   slug: string;

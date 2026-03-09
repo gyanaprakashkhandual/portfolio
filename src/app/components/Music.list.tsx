@@ -5,6 +5,7 @@
 import { useEffect, useState, useRef, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import { api, getMusicActivityUrl } from "@/configs/env.config";
 import {
   Music2,
   Disc3,
@@ -25,9 +26,8 @@ import {
   ChevronDown,
 } from "lucide-react";
 
-const BASE_URL = "http://localhost:5000/api/music";
-const ACTIVITY_URL = (musicId: string) =>
-  `http://localhost:5000/api/music/${musicId}`;
+const BASE_URL = api.music;
+const ACTIVITY_URL = getMusicActivityUrl;
 
 // ── Hardcoded demo userId (replace with real auth) ───────────────────────────
 const DEMO_USER_ID = "507f1f77bcf86cd799439011";

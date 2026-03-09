@@ -258,7 +258,7 @@ export default function SkillsPage() {
                         </td>
 
                         <td className="px-4 py-3.5">
-                          <span className="text-xs text-gray-500 dark:text-gray-400 line-clamp-1 max-w-xs">
+                          <span className="text-xs text-gray-500 dark:text-gray-400 line-clamp-1 max-w-xs" content-data="{skill.description}" content-placement="top" >
                             {skill.description}
                           </span>
                         </td>

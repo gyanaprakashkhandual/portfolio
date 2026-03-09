@@ -4,6 +4,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import { api } from "@/configs/env.config";
 import {
   ArrowLeft,
   Calendar,
@@ -14,7 +15,7 @@ import {
 } from "lucide-react";
 import MarkdownRenderer from "@/app/components/markdown/Markdown.render";
 
-const BASE_URL = "http://localhost:5000/api/blogs";
+const BASE_URL = api.blogs;
 
 interface BlogDetail {
   slug: string;

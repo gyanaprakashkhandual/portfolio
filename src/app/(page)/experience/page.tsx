@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { api } from "@/configs/env.config";
 import {
   Briefcase,
   MapPin,
@@ -19,7 +20,7 @@ import {
   Zap,
 } from "lucide-react";
 
-const BASE_URL = "http://localhost:5000/api/experience";
+const BASE_URL = api.experience;
 
 interface Achievement {
   title: string;

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/app/components/Nav.bar";
 import { ThemeProvider } from "@/app/context/Theme.context";
+import { ContentProvider } from "./context/Content.context";
 
 export const metadata: Metadata = {
   title: "Gyana Prakash Khandual",
@@ -33,10 +34,12 @@ export default function RootLayout({
         />
       </head>
       <body className="hide-scrollbar">
-        <ThemeProvider>
-          <Navbar />
-          {children}
-        </ThemeProvider>
+        <ContentProvider>
+          <ThemeProvider>
+            <Navbar />
+            {children}
+          </ThemeProvider>
+        </ContentProvider>
       </body>
     </html>
   );

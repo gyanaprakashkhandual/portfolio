@@ -3,6 +3,7 @@
 
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { api } from "@/configs/env.config";
 import {
   Mail,
   Phone,
@@ -20,7 +21,7 @@ import {
   AtSign,
 } from "lucide-react";
 
-const CONTACT_API = "http://localhost:5000/api/contact";
+const CONTACT_API = api.contact;
 
 interface FormData {
   name: string;
