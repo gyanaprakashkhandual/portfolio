@@ -292,7 +292,7 @@ export default function ContactPage() {
         )}
       </AnimatePresence>
 
-      <div className="flex-1 flex flex-col h-full overflow-hidden bg-white dark:bg-gray-950">
+      <div className="flex-1 flex flex-col h-full overflow-hidden bg-white dark:bg-neutral-950/90">
         <div className="flex-1 overflow-auto">
           <div className="max-w-5xl mx-auto px-6 py-8">
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
@@ -315,7 +315,7 @@ export default function ContactPage() {
                       <p className="text-sm font-bold text-gray-900 dark:text-white leading-none">
                         Gyana Prakash Khandual
                       </p>
-                      <p className="text-[11px] text-gray-400 dark:text-gray-500 mt-1">
+                      <p className="text-[16px] text-gray-500 dark:text-gray-500 mt-1 font-semibold">
                         Full Stack Developer
                       </p>
                     </div>
@@ -438,7 +438,7 @@ export default function ContactPage() {
                           type="text"
                           value={form.name}
                           onChange={set("name")}
-                          placeholder="John Doe"
+                          placeholder="Your Full Name"
                           className={inputCls(!!errors.name)}
                         />
                       </Field>
@@ -451,7 +451,7 @@ export default function ContactPage() {
                           type="email"
                           value={form.email}
                           onChange={set("email")}
-                          placeholder="john@example.com"
+                          placeholder="youremail@yourdomain.com"
                           className={inputCls(!!errors.email)}
                         />
                       </Field>

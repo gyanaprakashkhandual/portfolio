@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/app/components/Nav.bar";
 import { ThemeProvider } from "@/app/context/Theme.context";
 import StoreProvider from "./context/Store.context";
+import { ContentProvider } from "./context/Content.context";
 
 export const metadata: Metadata = {
   title: "Portfolio - Gyana Prakash Khandual",
@@ -36,8 +37,10 @@ export default function RootLayout({
       </head>
       <body>
         <ThemeProvider>
-          <Navbar />
-          <StoreProvider>{children}</StoreProvider>
+          <ContentProvider>
+            <Navbar />
+            <StoreProvider>{children}</StoreProvider>
+          </ContentProvider>
         </ThemeProvider>
       </body>
     </html>

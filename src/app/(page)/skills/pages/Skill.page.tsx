@@ -160,14 +160,55 @@ export default function SkillsPage() {
   return (
     <div className="flex-1 flex flex-col h-full overflow-hidden">
       <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950 flex items-center justify-between gap-4 flex-wrap">
-        <div>
-          <p className="text-[11px] text-gray-400 dark:text-gray-500 uppercase tracking-widest font-medium mb-0.5">
-            Skills
-          </p>
-          <h1 className="text-lg font-bold text-gray-900 dark:text-white tracking-tight">
-            {breadcrumb}
-          </h1>
-        </div>
+        <div className="flex items-center gap-3 px-6 py-3 border-b border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50 rounded-sm">
+  {/* Label + Breadcrumb */}
+  <div className="flex items-center gap-1.5">
+    <p className="text-[11px] text-gray-400 dark:text-gray-500 uppercase tracking-widest font-medium leading-none">
+      Skills
+    </p>
+    <span className="text-gray-300 dark:text-gray-600 leading-none">/</span>
+    <h1 className="text-sm font-bold text-gray-900 dark:text-white tracking-tight leading-none">
+      {breadcrumb}
+    </h1>
+  </div>
+
+  {/* Divider */}
+  {!loading && skills.length > 0 && (
+    <span className="w-px h-4 bg-gray-200 dark:bg-gray-700 self-center" />
+  )}
+
+  {/* Stats inline */}
+  {!loading && skills.length > 0 && (
+    <motion.div
+      initial={{ opacity: 0, x: -6 }}
+      animate={{ opacity: 1, x: 0 }}
+      className="flex items-center gap-3 text-xs text-gray-500 dark:text-gray-400 leading-none"
+    >
+      <span className="leading-none">
+        <span className="font-bold text-gray-900 dark:text-white">
+          {skills.length}
+        </span>{" "}
+        <span className="font-semibold">Skills</span>
+      </span>
+
+      {tableQuery && (
+        <>
+          <span className="w-px h-3 bg-gray-200 dark:bg-gray-700 self-center" />
+          <span className="leading-none">
+            <span className="font-semibold text-gray-900 dark:text-white">
+              {filtered.length}
+            </span>{" "}
+            matched
+          </span>
+          <span className="w-px h-3 bg-gray-200 dark:bg-gray-700 self-center" />
+          <span className="text-blue-500 dark:text-blue-400 leading-none">
+            &ldquo;{tableQuery}&rdquo;
+          </span>
+        </>
+      )}
+    </motion.div>
+  )}
+</div>
 
         <div className="relative w-64">
           <Search
@@ -196,34 +237,6 @@ export default function SkillsPage() {
           </AnimatePresence>
         </div>
       </div>
-
-      {!loading && skills.length > 0 && (
-        <motion.div
-          initial={{ opacity: 0, y: -8 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="px-6 py-2.5 border-b border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50 flex items-center gap-6 text-xs text-gray-500 dark:text-gray-400"
-        >
-          <span>
-            <span className="font-semibold text-gray-900 dark:text-white">
-              {skills.length}
-            </span>{" "}
-            skills total
-          </span>
-          {tableQuery && (
-            <>
-              <span>
-                <span className="font-semibold text-gray-900 dark:text-white">
-                  {filtered.length}
-                </span>{" "}
-                matched
-              </span>
-              <span className="text-blue-500 dark:text-blue-400">
-                Filtering: &quot;{tableQuery}&rdquo;
-              </span>
-            </>
-          )}
-        </motion.div>
-      )}
 
       <div className="flex-1 overflow-auto">
         {loading ? (
@@ -363,7 +376,7 @@ export default function SkillsPage() {
                           />
                         </td>
                         <td className="px-4 py-3.5">
-                          <span className="text-xs text-gray-500 dark:text-gray-400 line-clamp-1 max-w-xs">
+                          <span className="text-xs text-gray-500 dark:text-gray-400 line-clamp-1 max-w-xs" content={skill.description ?? ""}>
                             {(skill as any).description ?? ""}
                           </span>
                         </td>
