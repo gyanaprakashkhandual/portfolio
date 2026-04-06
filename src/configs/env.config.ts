@@ -1,8 +1,7 @@
-// Environment Configuration
-// Dynamically switches between development, staging, and production environments
-
 const getEnvironmentConfig = () => {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://gyanaprakashkhandual.onrender.com";
+  const baseUrl =
+    process.env.NEXT_PUBLIC_BASE_URL ||
+    "https://gyanaprakashkhandual.onrender.com";
   const nodeEnv = process.env.NODE_ENV || "development";
 
   return {
@@ -15,12 +14,8 @@ const getEnvironmentConfig = () => {
     api: {
       music: `${baseUrl}/api/music`,
       skills: `${baseUrl}/api/skills`,
-      blogs: `${baseUrl}/api/blogs`,
-      experience: `${baseUrl}/api/experience`,
-      education: `${baseUrl}/api/education`,
       projects: `${baseUrl}/api/projects`,
       contact: `${baseUrl}/api/contact`,
-      docs: `${baseUrl}/api/docs`,
     },
 
     // Helper function to get music activity URL
