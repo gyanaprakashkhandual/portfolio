@@ -114,7 +114,7 @@ export default function Footer() {
                 (p) => (
                   <li key={p}>
                     <a
-                      href="#"
+                      href="https://gyanprakash.vercel.app/projects"
                       className="group inline-flex items-center gap-1.5 text-sm text-black/55 dark:text-white/55 hover:text-black dark:hover:text-white transition-colors duration-150 font-medium"
                     >
                       {p}
@@ -134,11 +134,11 @@ export default function Footer() {
               {[
                 {
                   name: "GitHub",
-                  url: "https://github.com/GyanaprakashKhandual",
+                  url: "https://github.com/gyanaprakashkhandual",
                 },
                 {
                   name: "LinkedIn",
-                  url: "https://www.linkedin.com/in/gyana-prakash-khandual-79b205332/",
+                  url: "https://www.linkedin.com/in/gyanaprakashkhandual/",
                 },
                 {
                   name: "Email",
