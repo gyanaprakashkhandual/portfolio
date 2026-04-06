@@ -3,7 +3,6 @@ import "./globals.css";
 import Navbar from "@/app/components/Nav.bar";
 import { ThemeProvider } from "@/app/context/Theme.context";
 import StoreProvider from "./context/Store.context";
-import { ContentProvider } from "./context/Content.context";
 export const metadata: Metadata = {
   title: "Gyan's",
   description:
@@ -36,10 +35,8 @@ export default function RootLayout({
       </head>
       <body>
         <ThemeProvider>
-          <ContentProvider>
-            <Navbar />
-            <StoreProvider>{children}</StoreProvider>
-          </ContentProvider>
+          <Navbar />
+          <StoreProvider>{children}</StoreProvider>
         </ThemeProvider>
       </body>
     </html>

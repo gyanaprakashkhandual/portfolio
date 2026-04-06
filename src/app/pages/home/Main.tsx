@@ -7,7 +7,6 @@ import Testimonials from "./Testimonial";
 import CTA from "./CTA";
 import Footer from "./Footer";
 import AnnouncementSection from "./Annoucement";
-import GitHubSection from "./GitHub";
 
 export default function HomePage() {
   return (
