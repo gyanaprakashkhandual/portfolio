@@ -14,7 +14,6 @@ export default function HomePage() {
     <div className="min-h-screen bg-white dark:bg-[#09090b] text-black dark:text-white font-sans overflow-x-hidden selection:bg-slate-900 selection:text-white dark:selection:bg-white dark:selection:text-black select-none">
       <Hero />
       <AnnouncementSection />
-      <GitHubSection/>
       <Skills />
       <Stats />
       <Projects />

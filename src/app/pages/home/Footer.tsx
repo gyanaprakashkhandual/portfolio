@@ -25,7 +25,7 @@ const socials = [
     ),
   },
   {
-    name: "Instagram",
+    name: "Oops I am not in Instagram",
     url: "https://instagram.com/GyanaprakashKhandual",
     color: "hover:text-pink-500 hover:border-pink-500/30 hover:bg-pink-500/8",
     icon: (
@@ -74,7 +74,6 @@ export default function Footer() {
                   href={s.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  title={s.name}
                   whileTap={{ scale: 0.92 }}
                   className={`group relative flex items-center justify-center w-11 h-11 rounded-2xl bg-black/4 dark:bg-white/4 border border-black/8 dark:border-white/8 text-black/40 dark:text-white/40 ${s.color} transition-all duration-200 shadow-sm hover:shadow-md`}
                 >
