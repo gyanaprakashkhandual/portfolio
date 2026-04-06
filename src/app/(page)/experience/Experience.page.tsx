@@ -18,13 +18,6 @@ import {
   Shield,
   Zap,
 } from "lucide-react";
-import { useAppDispatch, useAppSelector } from "@/app/lib/hooks";
-import { fetchAllExperience } from "@/app/lib/features/experience/experience.slice";
-import {
-  selectAllExperience,
-  selectExperienceLoading,
-  selectExperienceError,
-} from "@/app/lib/features/experience/experience.selector";
 
 interface Achievement {
   title: string;
@@ -386,14 +379,25 @@ function ExperienceCard({ exp, index }: { exp: Experience; index: number }) {
 }
 
 export default function ExperiencePage() {
-  const dispatch = useAppDispatch();
-  const data = useAppSelector(selectAllExperience) as unknown as Experience[];
-  const loading = useAppSelector(selectExperienceLoading);
-  const error = useAppSelector(selectExperienceError);
+  const [data, setData] = useState<Experience[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    dispatch(fetchAllExperience());
-  }, [dispatch]);
+    fetch("../../../../public/Experience.data.json")
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to fetch experience data.");
+        return res.json();
+      })
+      .then((json) => {
+        setData(json.experience ?? []);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message || "Something went wrong.");
+        setLoading(false);
+      });
+  }, []);
 
   const totalTech = [...new Set(data.flatMap((e) => e.techStack ?? []))].length;
   const totalSkills = [...new Set(data.flatMap((e) => e.skills ?? []))].length;
@@ -426,7 +430,7 @@ export default function ExperiencePage() {
                   {error}
                 </p>
                 <p className="text-xs text-gray-400 dark:text-gray-600">
-                  Check that the backend is running on port 5000.
+                  Check that Experience.json exists in the public folder.
                 </p>
               </div>
             </div>
