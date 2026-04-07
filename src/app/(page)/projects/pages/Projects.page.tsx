@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useEffect, useState } from "react";
@@ -69,7 +70,10 @@ export default function ProjectsPage() {
       >
         <div className="flex items-center gap-3 mb-2">
           <div className="w-9 h-9 rounded-xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 flex items-center justify-center">
-            <Layers className="w-4 h-4 text-gray-600 dark:text-gray-400" strokeWidth={1.8} />
+            <Layers
+              className="w-4 h-4 text-gray-600 dark:text-gray-400"
+              strokeWidth={1.8}
+            />
           </div>
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">
             All Projects
@@ -86,7 +90,11 @@ export default function ProjectsPage() {
             key={project.projectSlug}
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.07, duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            transition={{
+              delay: i * 0.07,
+              duration: 0.35,
+              ease: [0.22, 1, 0.36, 1],
+            }}
             onClick={() => router.push(`/projects/${project.projectSlug}`)}
             className="group cursor-pointer rounded-2xl flex flex-col bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-700 hover:shadow-md dark:hover:shadow-black/30 transition-all duration-200 overflow-hidden"
           >
@@ -104,7 +112,10 @@ export default function ProjectsPage() {
               <div className="flex items-start justify-between gap-3">
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1.5">
-                    <FolderOpen className="w-4 h-4 text-gray-400 dark:text-gray-600 shrink-0" strokeWidth={1.8} />
+                    <FolderOpen
+                      className="w-4 h-4 text-gray-400 dark:text-gray-600 shrink-0"
+                      strokeWidth={1.8}
+                    />
                     <span className="text-[11px] text-gray-400 dark:text-gray-500 uppercase tracking-widest font-medium">
                       {project.projectType}
                     </span>

@@ -161,7 +161,7 @@ function SkeletonBlock({ className }: { className?: string }) {
 
 function PageSkeleton() {
   return (
-    <div className="p-6 lg:p-8 max-w-4xl mx-auto space-y-5">
+    <div className="p-6 lg:p-8 max-w-6xl mx-auto space-y-5">
       <SkeletonBlock className="h-5 w-28" />
       <SkeletonBlock className="h-56 w-full rounded-2xl" />
       <div className="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 space-y-4">
@@ -258,7 +258,7 @@ export default function ProjectDetailPage() {
     );
 
   return (
-    <div className="p-6 lg:p-8 max-w-4xl mx-auto">
+    <div className="p-6 lg:p-8 max-w-6xl mx-auto">
       <motion.button
         initial={{ opacity: 0, x: -8 }}
         animate={{ opacity: 1, x: 0 }}
