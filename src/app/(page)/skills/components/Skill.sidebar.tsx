@@ -135,7 +135,7 @@ export default function SkillsSidebar({
   }, []);
 
   useEffect(() => {
-    fetch("/Skill.data.json")
+    fetch("/Skills.data.json")
       .then((r) => {
         if (!r.ok) throw new Error(`HTTP ${r.status}`);
         return r.json();

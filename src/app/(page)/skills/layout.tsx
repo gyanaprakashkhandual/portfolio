@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, createContext, useContext } from "react";
-import SkillsSidebar from "./components/Skill.sidebar";
-import { ISkill } from "@/app/lib/types";
+import SkillsSidebar, { ISkill } from "./components/Skill.sidebar";
 
 interface SkillsContextType {
   skills: ISkill[];
@@ -33,7 +32,7 @@ export default function SkillsLayout({
   const [loading, setLoading] = useState(true);
   const [selectedKey, setSelectedKey] = useState("web/backend");
 
-  function setSkillsData(data: ISkill[], key: string, isLoading: boolean) {
+  function setSkillsData(data: ISkill[], _key: string, isLoading: boolean) {
     setSkills(data);
     setLoading(isLoading);
   }
