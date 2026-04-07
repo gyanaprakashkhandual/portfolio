@@ -9,11 +9,11 @@
     "projectFrontendRepository": "https://github.com/GyanaprakashKhandual/bug-tracker-frontend",
     "projectLiveDemo": "https://caffetest.vercel.app/",
     "projectImage": [
-      "https://res.cloudinary.com/dzj6s9o9c/image/upload/v1700000000/caffetest_dashboard.png",
-      "https://res.cloudinary.com/dzj6s9o9c/image/upload/v1700000000/caffetest_kanban.png",
-      "https://res.cloudinary.com/dzj6s9o9c/image/upload/v1700000000/caffetest_testcases.png",
-      "https://res.cloudinary.com/dzj6s9o9c/image/upload/v1700000000/caffetest_reports.png",
-      "https://res.cloudinary.com/dzj6s9o9c/image/upload/v1700000000/caffetest_bugtracking.png"
+      "https://res.cloudinary.com/dvytvjplt/image/upload/q_auto/f_auto/v1761224445/Screenshot_2025-10-23_175838_jj2h0n.png",
+      "https://res.cloudinary.com/dvytvjplt/image/upload/q_auto/f_auto/v1761224463/Screenshot_2025-10-23_175810_pnluun.png",
+      "https://res.cloudinary.com/dvytvjplt/image/upload/q_auto/f_auto/v1761224479/Screenshot_2025-10-23_175546_netcwr.png",
+      "https://res.cloudinary.com/dvytvjplt/image/upload/q_auto/f_auto/v1761224493/Screenshot_2025-10-23_175516_fibjzj.png",
+      "https://res.cloudinary.com/dvytvjplt/image/upload/q_auto/f_auto/v1761224559/Screenshot_2025-10-23_163349_a0p9ol.png"
     ],
     "projectTechnologies": [
       "React",

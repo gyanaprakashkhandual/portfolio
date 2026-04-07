@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-expressions */
-/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import { useEffect, useRef, useState } from "react";
@@ -23,12 +21,36 @@ import {
   Rocket,
   Cpu,
 } from "lucide-react";
-import { useAppDispatch } from "../../../lib/hooks";
-import {
-  fetchSkillsByCategory,
-  fetchSkillsBySubcategory,
-} from "../../../lib/features/skill/skill.slice";
-import { ISkill } from "@/app/lib/types";
+
+export interface ISkill {
+  skillName: string;
+  totalProjects?: string;
+  totalExperience?: string;
+  description?: string;
+  githubLink?: string;
+  learningLink?: string;
+  learningSource?: string;
+}
+
+type SkillData = {
+  web: {
+    backend: ISkill[];
+    frontend: ISkill[];
+    database: ISkill[];
+    deployment: ISkill[];
+    monitoring: ISkill[];
+    tools: ISkill[];
+  };
+  language: ISkill[];
+  security: ISkill[];
+  test: {
+    api: ISkill[];
+    database: ISkill[];
+    performance: ISkill[];
+    security: ISkill[];
+    ui: ISkill[];
+  };
+};
 
 interface CategoryMeta {
   label: string;
@@ -90,8 +112,7 @@ export default function SkillsSidebar({
   selectedKey,
   onKeyChange,
 }: SkillsSidebarProps) {
-  const dispatch = useAppDispatch();
-
+  const [skillData, setSkillData] = useState<SkillData | null>(null);
   const [query, setQuery] = useState("");
   const [expandedCategories, setExpandedCategories] = useState<Set<string>>(
     new Set(["web"]),
@@ -114,32 +135,47 @@ export default function SkillsSidebar({
   }, []);
 
   useEffect(() => {
-    fetchSkills("web/backend", "web", "backend");
+    fetch("/Skill.data.json")
+      .then((r) => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.json();
+      })
+      .then((data: SkillData) => {
+        setSkillData(data);
+        selectSkills(data, "web/backend");
+      })
+      .catch(() => {
+        onSelect([], "web/backend", false);
+      });
   }, []);
 
-  async function fetchSkills(
-    key: string,
-    category: string,
-    subcategory?: string,
-  ) {
+  function getSkills(data: SkillData, key: string): ISkill[] {
+    const [cat, sub] = key.split("/");
+    if (sub) {
+      const catData = data[cat as keyof SkillData];
+      if (catData && typeof catData === "object" && !Array.isArray(catData)) {
+        return (catData as Record<string, ISkill[]>)[sub] ?? [];
+      }
+      return [];
+    }
+    const catData = data[cat as keyof SkillData];
+    return Array.isArray(catData) ? catData : [];
+  }
+
+  function selectSkills(data: SkillData, key: string) {
     setLoadingKey(key);
     onKeyChange(key);
     onSelect([], key, true);
-    try {
-      if (subcategory) {
-        const result = await dispatch(
-          fetchSkillsBySubcategory({ category, subcategory }),
-        ).unwrap();
-        onSelect(result.data, key, false);
-      } else {
-        const result = await dispatch(fetchSkillsByCategory(category)).unwrap();
-        onSelect(result.data, key, false);
-      }
-    } catch {
-      onSelect([], key, false);
-    } finally {
+    setTimeout(() => {
+      const skills = getSkills(data, key);
+      onSelect(skills, key, false);
       setLoadingKey(null);
-    }
+    }, 120);
+  }
+
+  function handleSelect(key: string) {
+    if (!skillData) return;
+    selectSkills(skillData, key);
   }
 
   function toggleCategory(cat: string) {
@@ -339,7 +375,7 @@ export default function SkillsSidebar({
                     onClick={() => {
                       toggleCategory(cat);
                       if (meta.subcategories.length === 0) {
-                        fetchSkills(catKey, cat);
+                        handleSelect(catKey);
                       }
                     }}
                     className={`flex-1 flex items-center gap-2.5 px-3 py-2 rounded-xl transition-all duration-150 group ${
@@ -396,7 +432,7 @@ export default function SkillsSidebar({
                               initial={{ opacity: 0, x: -6 }}
                               animate={{ opacity: 1, x: 0 }}
                               transition={{ delay: si * 0.03 }}
-                              onClick={() => fetchSkills(subKey, cat, sub)}
+                              onClick={() => handleSelect(subKey)}
                               className={`w-full flex items-center gap-2 px-2.5 py-1.5 rounded-lg mb-0.5 text-left transition-all duration-150 group ${
                                 isSubActive
                                   ? "bg-gray-900 dark:bg-white text-white dark:text-gray-900"

@@ -207,7 +207,7 @@ export default function ProjectDetailPage() {
     setError(null);
     setProject(null);
 
-    fetch("/Project.data.json")
+    fetch("/Projects.data.json")
       .then((r) => {
         if (!r.ok) throw new Error(`HTTP ${r.status}: ${r.statusText}`);
         return r.json();
