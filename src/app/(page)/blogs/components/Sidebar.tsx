@@ -1,109 +1,371 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
+import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
-import { Clock, BookOpen } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Search,
+  X,
+  ChevronRight,
+  Loader2,
+  SlidersHorizontal,
+  Check,
+  BookOpen,
+} from "lucide-react";
 import { blogs } from "../data/Blogs";
 
-const tagStyles: Record<string, string> = {
-  blue: "bg-blue-50 text-blue-700 dark:bg-blue-950/50 dark:text-blue-300",
-  emerald:
-    "bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300",
-};
+interface Blog {
+  slug: string;
+  title: string;
+  description: string;
+  tag: string;
+  tagColor: string;
+  readTime: string;
+}
 
 export default function Sidebar() {
   const pathname = usePathname();
 
+  const [allBlogs] = useState<Blog[]>(blogs);
+  const [filtered, setFiltered] = useState<Blog[]>(blogs);
+  const [query, setQuery] = useState("");
+  const [loading] = useState(false);
+  const [filterOpen, setFilterOpen] = useState(false);
+  const [activeTags, setActiveTags] = useState<Set<string>>(new Set());
+  const [allTags] = useState<string[]>(
+    Array.from(new Set(blogs.map((b) => b.tag))).sort(),
+  );
+
+  const filterRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (filterRef.current && !filterRef.current.contains(e.target as Node)) {
+        setFilterOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
+
+  useEffect(() => {
+    const q = query.toLowerCase();
+    setFiltered(
+      allBlogs.filter((b) => {
+        const matchesQuery =
+          b.title.toLowerCase().includes(q) ||
+          b.description.toLowerCase().includes(q) ||
+          b.tag.toLowerCase().includes(q);
+
+        const matchesTags = activeTags.size === 0 || activeTags.has(b.tag);
+
+        return matchesQuery && matchesTags;
+      }),
+    );
+  }, [query, allBlogs, activeTags]);
+
+  function toggleTag(tag: string) {
+    setActiveTags((prev) => {
+      const next = new Set(prev);
+      next.has(tag) ? next.delete(tag) : next.add(tag);
+      return next;
+    });
+  }
+
+  function clearFilters() {
+    setActiveTags(new Set());
+  }
+
   return (
-    <aside className="w-72 shrink-0">
-      <div className="sticky top-8">
-        <div className="flex items-center gap-2 mb-5">
-          <BookOpen size={13} className="text-zinc-400" />
-          <p className="font-code text-[11px] uppercase tracking-widest text-zinc-400">
+    <aside className="w-72 shrink-0 flex flex-col h-full bg-white dark:bg-gray-950 border-r border-gray-200 dark:border-gray-800">
+      {/* Header */}
+      <div className="px-4 pt-5 pb-4 border-b border-gray-200 dark:border-gray-800">
+        <div className="flex items-center gap-2 mb-3">
+          <BookOpen
+            className="w-3.5 h-3.5 text-gray-400 dark:text-gray-500"
+            strokeWidth={1.8}
+          />
+          <p className="text-[11px] uppercase tracking-widest text-gray-400 dark:text-gray-500 font-medium">
             All guides
           </p>
         </div>
 
-        <div className="space-y-2">
-          {blogs.map((blog, i) => {
+        <div className="flex items-center gap-2">
+          {/* Search */}
+          <div className="relative flex-1">
+            <Search
+              className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-400 dark:text-gray-500 pointer-events-none"
+              strokeWidth={1.8}
+            />
+            <input
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search guides…"
+              className="w-full pl-9 pr-8 py-2 rounded-lg text-sm bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-900 dark:focus:ring-white focus:ring-offset-0 focus:border-transparent transition-all duration-150"
+            />
+            <AnimatePresence>
+              {query && (
+                <motion.button
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  onClick={() => setQuery("")}
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
+                >
+                  <X className="w-3.5 h-3.5" />
+                </motion.button>
+              )}
+            </AnimatePresence>
+          </div>
+
+          {/* Filter button */}
+          <div className="relative" ref={filterRef}>
+            <button
+              onClick={() => setFilterOpen((v) => !v)}
+              className={`relative w-9 h-9 rounded-lg flex items-center justify-center border transition-all duration-150 ${
+                filterOpen
+                  ? "bg-gray-900 dark:bg-white border-gray-900 dark:border-white text-white dark:text-gray-900"
+                  : activeTags.size > 0
+                    ? "bg-gray-100 dark:bg-gray-800 border-gray-900 dark:border-white text-gray-900 dark:text-white"
+                    : "bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 text-gray-500 dark:text-gray-400 hover:border-gray-400 dark:hover:border-gray-500 hover:text-gray-700 dark:hover:text-gray-300"
+              }`}
+            >
+              <SlidersHorizontal className="w-3.5 h-3.5" strokeWidth={1.8} />
+              {activeTags.size > 0 && !filterOpen && (
+                <span className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-[9px] font-bold flex items-center justify-center leading-none">
+                  {activeTags.size}
+                </span>
+              )}
+            </button>
+
+            {/* Filter dropdown */}
+            <AnimatePresence>
+              {filterOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -6, scale: 0.97 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -6, scale: 0.97 }}
+                  transition={{ duration: 0.15, ease: "easeOut" }}
+                  className="absolute right-0 top-full mt-2 z-50 w-56 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-xl shadow-gray-200/60 dark:shadow-black/50 overflow-hidden"
+                >
+                  <div className="flex items-center justify-between px-3 py-2.5 border-b border-gray-100 dark:border-gray-800">
+                    <span className="text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest">
+                      Filter by Tag
+                    </span>
+                    {activeTags.size > 0 && (
+                      <button
+                        onClick={clearFilters}
+                        className="text-[11px] font-medium text-gray-400 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors"
+                      >
+                        Clear all
+                      </button>
+                    )}
+                  </div>
+
+                  <div className="max-h-56 overflow-y-auto py-1.5 px-1.5">
+                    {allTags.length === 0 ? (
+                      <p className="text-xs text-gray-400 dark:text-gray-600 text-center py-4">
+                        No tags available
+                      </p>
+                    ) : (
+                      allTags.map((tag) => {
+                        const isActive = activeTags.has(tag);
+                        return (
+                          <button
+                            key={tag}
+                            onClick={() => toggleTag(tag)}
+                            className={`w-full flex items-center justify-between gap-2 px-2.5 py-1.5 rounded-lg transition-all duration-100 ${
+                              isActive
+                                ? "bg-gray-900 dark:bg-white text-white dark:text-gray-900"
+                                : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                            }`}
+                          >
+                            <span className="truncate text-left text-[12px] font-medium">
+                              {tag}
+                            </span>
+                            {isActive && (
+                              <Check
+                                className="w-3 h-3 shrink-0"
+                                strokeWidth={2.5}
+                              />
+                            )}
+                          </button>
+                        );
+                      })
+                    )}
+                  </div>
+
+                  {activeTags.size > 0 && (
+                    <div className="px-3 py-2 border-t border-gray-100 dark:border-gray-800">
+                      <p className="text-[11px] text-gray-400 dark:text-gray-500 text-center">
+                        {activeTags.size} tag{activeTags.size !== 1 ? "s" : ""}{" "}
+                        · {filtered.length} guide
+                        {filtered.length !== 1 ? "s" : ""}
+                      </p>
+                    </div>
+                  )}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        </div>
+
+        {/* Active tag pills */}
+        <AnimatePresence>
+          {activeTags.size > 0 && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.18 }}
+              className="flex flex-wrap gap-1 mt-2.5 overflow-hidden"
+            >
+              {Array.from(activeTags).map((tag) => (
+                <button
+                  key={tag}
+                  onClick={() => toggleTag(tag)}
+                  className="inline-flex items-center gap-1 text-[10px] font-medium px-2 py-0.5 rounded-md bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:opacity-75 transition-opacity"
+                >
+                  {tag}
+                  <X className="w-2.5 h-2.5" strokeWidth={2.5} />
+                </button>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+
+      {/* List */}
+      <div className="flex-1 overflow-y-auto py-2 px-2 scrollbar-thin scrollbar-thumb-gray-200 dark:scrollbar-thumb-gray-800">
+        {loading && (
+          <div className="flex flex-col items-center justify-center py-12 gap-3">
+            <Loader2 className="w-5 h-5 text-gray-400 dark:text-gray-600 animate-spin" />
+            <p className="text-xs text-gray-400 dark:text-gray-600">
+              Loading guides…
+            </p>
+          </div>
+        )}
+
+        {!loading && filtered.length === 0 && (
+          <div className="flex flex-col items-center justify-center py-12 gap-2 px-4">
+            <div className="w-10 h-10 rounded-xl bg-gray-100 dark:bg-gray-800/60 flex items-center justify-center mb-1">
+              <Search
+                className="w-4 h-4 text-gray-400 dark:text-gray-600"
+                strokeWidth={1.5}
+              />
+            </div>
+            <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
+              No guides found
+            </p>
+            <p className="text-xs text-gray-400 dark:text-gray-600 text-center">
+              Try a different search or filter
+            </p>
+          </div>
+        )}
+
+        <AnimatePresence initial={false}>
+          {filtered.map((blog, i) => {
             const isActive = pathname === `/blogs/${blog.slug}`;
+            const isTagMatch =
+              query.length > 0 &&
+              blog.tag.toLowerCase().includes(query.toLowerCase());
+            const isTagFiltered = activeTags.has(blog.tag);
+
             return (
               <motion.div
                 key={blog.slug}
-                initial={{ opacity: 0, x: -12 }}
+                initial={{ opacity: 0, x: -8 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{
-                  delay: i * 0.07,
-                  duration: 0.4,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
+                exit={{ opacity: 0, x: -8 }}
+                transition={{ delay: i * 0.04, duration: 0.2 }}
               >
                 <Link href={`/blogs/${blog.slug}`}>
                   <div
-                    className={`group rounded-xl border p-4 transition-all duration-200 cursor-pointer ${
+                    className={`w-full text-left px-3 py-3 rounded-xl mb-1 group transition-all duration-150 ${
                       isActive
-                        ? "border-black dark:border-white bg-black dark:bg-white"
-                        : "border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600 bg-white dark:bg-zinc-950"
+                        ? "bg-gray-900 dark:bg-white border border-gray-900 dark:border-white shadow-sm"
+                        : "bg-transparent border border-transparent hover:bg-gray-50 dark:hover:bg-gray-900 hover:border-gray-200 dark:hover:border-gray-700"
                     }`}
                   >
-                    <div className="flex items-center gap-2 mb-2">
-                      <span
-                        className={`font-code text-[10px] px-2 py-0.5 rounded-full ${
+                    <div className="flex items-start justify-between gap-2">
+                      <div className="flex-1 min-w-0">
+                        {/* Tag badge */}
+                        <div className="mb-1.5">
+                          <span
+                            className={`text-[10px] px-1.5 py-0.5 rounded-md font-medium border transition-colors duration-150 ${
+                              isActive
+                                ? isTagMatch || isTagFiltered
+                                  ? "bg-white text-gray-900 dark:bg-gray-900 dark:text-white border-white dark:border-gray-900"
+                                  : "bg-white/10 dark:bg-black/10 text-gray-200 dark:text-gray-700 border-white/20 dark:border-black/10"
+                                : isTagMatch || isTagFiltered
+                                  ? "bg-gray-900 dark:bg-white text-white dark:text-gray-900 border-gray-900 dark:border-white"
+                                  : "bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-gray-700"
+                            }`}
+                          >
+                            {blog.tag}
+                          </span>
+                        </div>
+
+                        {/* Title */}
+                        <p
+                          className={`text-sm font-semibold truncate mb-0.5 transition-colors ${
+                            isActive
+                              ? "text-white dark:text-gray-900"
+                              : "text-gray-800 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-white"
+                          }`}
+                        >
+                          {blog.title}
+                        </p>
+
+                        {/* Description */}
+                        <p
+                          className={`text-xs line-clamp-2 leading-relaxed ${
+                            isActive
+                              ? "text-gray-300 dark:text-gray-600"
+                              : "text-gray-500 dark:text-gray-500"
+                          }`}
+                        >
+                          {blog.description}
+                        </p>
+
+                        {/* Read time */}
+                        <p
+                          className={`text-[10px] mt-1.5 ${
+                            isActive
+                              ? "text-gray-400 dark:text-gray-600"
+                              : "text-gray-400 dark:text-gray-600"
+                          }`}
+                        >
+                          {blog.readTime}
+                        </p>
+                      </div>
+
+                      <ChevronRight
+                        className={`w-3.5 h-3.5 shrink-0 mt-0.5 transition-all duration-150 ${
                           isActive
-                            ? "bg-white/20 text-white dark:bg-black/20 dark:text-black"
-                            : tagStyles[blog.tagColor]
+                            ? "text-gray-300 dark:text-gray-600 opacity-100 translate-x-0"
+                            : "text-gray-400 dark:text-gray-600 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5"
                         }`}
-                      >
-                        {blog.tag}
-                      </span>
-                    </div>
-
-                    <p
-                      className={`text-sm font-medium leading-snug mb-1.5 font-display ${
-                        isActive
-                          ? "text-white dark:text-black"
-                          : "text-black dark:text-white"
-                      }`}
-                    >
-                      {blog.title}
-                    </p>
-
-                    <p
-                      className={`text-[11px] leading-relaxed line-clamp-2 mb-3 ${
-                        isActive
-                          ? "text-white/70 dark:text-black/70"
-                          : "text-zinc-500 dark:text-zinc-500"
-                      }`}
-                    >
-                      {blog.description}
-                    </p>
-
-                    <div
-                      className={`flex items-center gap-1 font-code text-[10px] ${
-                        isActive
-                          ? "text-white/60 dark:text-black/60"
-                          : "text-zinc-400"
-                      }`}
-                    >
-                      <Clock size={10} />
-                      {blog.readTime}
+                        strokeWidth={2}
+                      />
                     </div>
                   </div>
                 </Link>
               </motion.div>
             );
           })}
-        </div>
+        </AnimatePresence>
+      </div>
 
-        <div className="mt-6 pt-6 border-t border-zinc-100 dark:border-zinc-900">
-          <Link
-            href="/blogs"
-            className="font-code text-[11px] text-zinc-400 hover:text-black dark:hover:text-white transition-colors uppercase tracking-widest"
-          >
-            ← All guides
-          </Link>
-        </div>
+      {/* Footer */}
+      <div className="px-4 py-3 border-t border-gray-200 dark:border-gray-800">
+        <p className="text-[11px] text-gray-400 dark:text-gray-600 text-center">
+          {`${allBlogs.length} total guide${allBlogs.length !== 1 ? "s" : ""}`}
+        </p>
       </div>
     </aside>
   );
