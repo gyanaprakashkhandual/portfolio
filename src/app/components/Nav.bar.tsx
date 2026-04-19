@@ -18,7 +18,7 @@ const NAV_LINKS: NavLink[] = [
   { label: "Projects", href: "/projects" },
   { label: "Education", href: "/education" },
   { label: "Experience", href: "/experience" },
-  { label: "Blogs", href: "https://blogs.vercel.app" },
+  { label: "Blogs", href: "/blogs" },
   { label: "Docs", href: "https://readme.vercel.app" },
   { label: "Music", href: "/music" },
   { label: "Contact", href: "/contact" },

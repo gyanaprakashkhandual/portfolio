@@ -9,7 +9,7 @@ const componentMap: Record<string, React.ComponentType> = {
 };
 
 interface Props {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export function generateStaticParams() {
@@ -19,9 +19,11 @@ export function generateStaticParams() {
   ];
 }
 
-export default function SlugPage({ params }: Props) {
-  const blog = getBlogBySlug(params.slug);
-  const Component = componentMap[params.slug];
+export default async function SlugPage({ params }: Props) {
+  const { slug } = await params;
+
+  const blog = getBlogBySlug(slug);
+  const Component = componentMap[slug];
 
   if (!blog || !Component) {
     notFound();
