@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { useState, useEffect, createContext, useContext } from "react";
@@ -121,7 +122,7 @@ function ProficiencyBar({ value }: { value: string }) {
           ? "bg-amber-500"
           : "bg-gray-400";
   return (
-    <div className="flex items-center gap-2 min-w-[90px]">
+    <div className="flex items-center gap-2 min-w-22.5">
       <div className="flex-1 h-1.5 rounded-full bg-gray-100 dark:bg-gray-800 overflow-hidden">
         <motion.div
           initial={{ width: 0 }}
@@ -169,11 +170,22 @@ function SortIcon({
   sortDir: SortDir;
 }) {
   if (col !== sortKey)
-    return <ChevronUp className="w-3 h-3 text-gray-300 dark:text-gray-700" strokeWidth={2} />;
+    return (
+      <ChevronUp
+        className="w-3 h-3 text-gray-300 dark:text-gray-700"
+        strokeWidth={2}
+      />
+    );
   return sortDir === "asc" ? (
-    <ChevronUp className="w-3 h-3 text-gray-900 dark:text-white" strokeWidth={2} />
+    <ChevronUp
+      className="w-3 h-3 text-gray-900 dark:text-white"
+      strokeWidth={2}
+    />
   ) : (
-    <ChevronDown className="w-3 h-3 text-gray-900 dark:text-white" strokeWidth={2} />
+    <ChevronDown
+      className="w-3 h-3 text-gray-900 dark:text-white"
+      strokeWidth={2}
+    />
   );
 }
 
@@ -202,7 +214,7 @@ function Sidebar({
     <motion.aside
       animate={{ width: collapsed ? 56 : 220 }}
       transition={{ duration: 0.25, ease: "easeInOut" }}
-      className="flex-shrink-0 flex flex-col h-full border-r border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50 overflow-hidden"
+      className="shrink-0 flex flex-col h-full border-r border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/50 overflow-hidden"
     >
       {/* Header */}
       <div className="flex items-center justify-between px-3 py-3.5 border-b border-gray-200 dark:border-gray-800">
@@ -234,8 +246,11 @@ function Sidebar({
       <nav className="flex-1 overflow-y-auto py-2 px-2 space-y-0.5">
         {navItems.map((cat) => {
           const isActive = selected === cat;
-          const count = cat === "All" ? allCount : (skillsByCategory[cat]?.length ?? 0);
-          const icon = CATEGORY_ICONS[cat] ?? <Layers className="w-3.5 h-3.5" strokeWidth={1.8} />;
+          const count =
+            cat === "All" ? allCount : (skillsByCategory[cat]?.length ?? 0);
+          const icon = CATEGORY_ICONS[cat] ?? (
+            <Layers className="w-3.5 h-3.5" strokeWidth={1.8} />
+          );
 
           return (
             <button
@@ -261,7 +276,9 @@ function Sidebar({
                     exit={{ opacity: 0, width: 0 }}
                     className="flex-1 flex items-center justify-between overflow-hidden"
                   >
-                    <span className="text-xs font-medium whitespace-nowrap">{cat}</span>
+                    <span className="text-xs font-medium whitespace-nowrap">
+                      {cat}
+                    </span>
                     <span
                       className={`text-[10px] font-bold px-1.5 py-0.5 rounded-md tabular-nums ${
                         isActive
@@ -293,7 +310,10 @@ function SkillsTable() {
 
   function handleSort(col: SortKey) {
     if (sortKey === col) setSortDir((d) => (d === "asc" ? "desc" : "asc"));
-    else { setSortKey(col); setSortDir("asc"); }
+    else {
+      setSortKey(col);
+      setSortDir("asc");
+    }
   }
 
   const filtered = skills.filter(
@@ -323,11 +343,6 @@ function SkillsTable() {
     return sortDir === "asc" ? cmp : -cmp;
   });
 
-  const breadcrumb = selectedKey
-    .split("/")
-    .map((p) => p.charAt(0).toUpperCase() + p.slice(1))
-    .join(" / ");
-
   const thBase =
     "px-4 py-3 text-left cursor-pointer select-none transition-colors duration-150";
   const thActive = "text-gray-900 dark:text-white";
@@ -336,79 +351,6 @@ function SkillsTable() {
 
   return (
     <div className="flex-1 flex flex-col h-full overflow-hidden">
-      {/* Top bar */}
-      <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950 flex items-center justify-between gap-4 flex-wrap">
-        <div className="flex items-center gap-3 px-4 py-2.5 border border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50 rounded-lg">
-          <div className="flex items-center gap-1.5">
-            <p className="text-[11px] text-gray-400 dark:text-gray-500 uppercase tracking-widest font-medium leading-none">
-              Skills
-            </p>
-            <span className="text-gray-300 dark:text-gray-600 leading-none">/</span>
-            <h1 className="text-sm font-bold text-gray-900 dark:text-white tracking-tight leading-none">
-              {breadcrumb}
-            </h1>
-          </div>
-
-          {!loading && skills.length > 0 && (
-            <span className="w-px h-4 bg-gray-200 dark:bg-gray-700 self-center" />
-          )}
-
-          {!loading && skills.length > 0 && (
-            <motion.div
-              initial={{ opacity: 0, x: -6 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="flex items-center gap-3 text-xs text-gray-500 dark:text-gray-400 leading-none"
-            >
-              <span className="leading-none">
-                <span className="font-bold text-gray-900 dark:text-white">{skills.length}</span>{" "}
-                <span className="font-semibold">Skills</span>
-              </span>
-              {tableQuery && (
-                <>
-                  <span className="w-px h-3 bg-gray-200 dark:bg-gray-700 self-center" />
-                  <span className="leading-none">
-                    <span className="font-semibold text-gray-900 dark:text-white">{filtered.length}</span>{" "}
-                    matched
-                  </span>
-                  <span className="w-px h-3 bg-gray-200 dark:bg-gray-700 self-center" />
-                  <span className="text-blue-500 dark:text-blue-400 leading-none">
-                    &ldquo;{tableQuery}&rdquo;
-                  </span>
-                </>
-              )}
-            </motion.div>
-          )}
-        </div>
-
-        {/* Search */}
-        <div className="relative w-64">
-          <Search
-            className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-400 pointer-events-none"
-            strokeWidth={1.8}
-          />
-          <input
-            type="text"
-            value={tableQuery}
-            onChange={(e) => setTableQuery(e.target.value)}
-            placeholder="Filter table…"
-            className="w-full pl-9 pr-8 py-2 rounded-lg text-sm bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-900 dark:focus:ring-white focus:border-transparent transition-all"
-          />
-          <AnimatePresence>
-            {tableQuery && (
-              <motion.button
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.8 }}
-                onClick={() => setTableQuery("")}
-                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
-              >
-                <X className="w-3.5 h-3.5" />
-              </motion.button>
-            )}
-          </AnimatePresence>
-        </div>
-      </div>
-
       {/* Table area */}
       <div className="flex-1 overflow-auto">
         {loading ? (
@@ -416,7 +358,9 @@ function SkillsTable() {
             <div className="rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden">
               <table className="w-full">
                 <tbody>
-                  {[...Array(8)].map((_, i) => <SkeletonRow key={i} />)}
+                  {[...Array(8)].map((_, i) => (
+                    <SkeletonRow key={i} />
+                  ))}
                 </tbody>
               </table>
             </div>
@@ -424,16 +368,26 @@ function SkillsTable() {
         ) : skills.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-64 gap-4 p-8">
             <div className="w-12 h-12 rounded-2xl bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 flex items-center justify-center">
-              <AlertTriangle className="w-5 h-5 text-gray-400" strokeWidth={1.8} />
+              <AlertTriangle
+                className="w-5 h-5 text-gray-400"
+                strokeWidth={1.8}
+              />
             </div>
             <div className="text-center">
-              <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">No skills found</p>
-              <p className="text-xs text-gray-400 dark:text-gray-600">This category may be empty or unavailable.</p>
+              <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                No skills found
+              </p>
+              <p className="text-xs text-gray-400 dark:text-gray-600">
+                This category may be empty or unavailable.
+              </p>
             </div>
           </div>
         ) : sorted.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20 gap-3">
-            <Search className="w-8 h-8 text-gray-300 dark:text-gray-700" strokeWidth={1.5} />
+            <Search
+              className="w-8 h-8 text-gray-300 dark:text-gray-700"
+              strokeWidth={1.5}
+            />
             <p className="text-sm text-gray-400 dark:text-gray-600">
               No skills match &quot;{tableQuery}&quot;
             </p>
@@ -444,10 +398,10 @@ function SkillsTable() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.25 }}
-            className="p-6"
+            className=""
           >
-            <div className="rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden bg-white dark:bg-gray-950">
-              <div className="overflow-x-auto">
+            <div className="rounded-sm border border-gray-200 dark:border-gray-800 overflow-hidden bg-white dark:bg-gray-950">
+              <div>
                 <table className="w-full">
                   <thead>
                     <tr className="border-b border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900">
@@ -456,8 +410,14 @@ function SkillsTable() {
                         onClick={() => handleSort("skillName")}
                       >
                         <div className="flex items-center gap-1.5">
-                          <span className="text-[11px] font-bold uppercase tracking-widest">Skill</span>
-                          <SortIcon col="skillName" sortKey={sortKey} sortDir={sortDir} />
+                          <span className="text-[11px] font-bold uppercase tracking-widest">
+                            Skill
+                          </span>
+                          <SortIcon
+                            col="skillName"
+                            sortKey={sortKey}
+                            sortDir={sortDir}
+                          />
                         </div>
                       </th>
                       <th
@@ -465,8 +425,14 @@ function SkillsTable() {
                         onClick={() => handleSort("projects")}
                       >
                         <div className="flex items-center gap-1.5">
-                          <span className="text-[11px] font-bold uppercase tracking-widest">Projects</span>
-                          <SortIcon col="projects" sortKey={sortKey} sortDir={sortDir} />
+                          <span className="text-[11px] font-bold uppercase tracking-widest">
+                            Projects
+                          </span>
+                          <SortIcon
+                            col="projects"
+                            sortKey={sortKey}
+                            sortDir={sortDir}
+                          />
                         </div>
                       </th>
                       <th
@@ -474,8 +440,14 @@ function SkillsTable() {
                         onClick={() => handleSort("experience")}
                       >
                         <div className="flex items-center gap-1.5">
-                          <span className="text-[11px] font-bold uppercase tracking-widest">Experience</span>
-                          <SortIcon col="experience" sortKey={sortKey} sortDir={sortDir} />
+                          <span className="text-[11px] font-bold uppercase tracking-widest">
+                            Experience
+                          </span>
+                          <SortIcon
+                            col="experience"
+                            sortKey={sortKey}
+                            sortDir={sortDir}
+                          />
                         </div>
                       </th>
                       <th
@@ -483,8 +455,14 @@ function SkillsTable() {
                         onClick={() => handleSort("proficiency")}
                       >
                         <div className="flex items-center gap-1.5">
-                          <span className="text-[11px] font-bold uppercase tracking-widest">Proficiency</span>
-                          <SortIcon col="proficiency" sortKey={sortKey} sortDir={sortDir} />
+                          <span className="text-[11px] font-bold uppercase tracking-widest">
+                            Proficiency
+                          </span>
+                          <SortIcon
+                            col="proficiency"
+                            sortKey={sortKey}
+                            sortDir={sortDir}
+                          />
                         </div>
                       </th>
                       <th className="px-4 py-3 text-left text-[11px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">
@@ -573,7 +551,8 @@ function SkillsTable() {
               {/* Footer */}
               <div className="px-4 py-3 border-t border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50">
                 <p className="text-[11px] text-gray-400 dark:text-gray-600 text-center">
-                  Showing {sorted.length} of {skills.length} skill{skills.length !== 1 ? "s" : ""}
+                  Showing {sorted.length} of {skills.length} skill
+                  {skills.length !== 1 ? "s" : ""}
                 </p>
               </div>
             </div>
@@ -583,8 +562,6 @@ function SkillsTable() {
     </div>
   );
 }
-
-// ─── Root page ────────────────────────────────────────────────────────────────
 
 export default function SkillsPage() {
   const [allSkills, setAllSkills] = useState<Skill[]>([]);
@@ -612,7 +589,7 @@ export default function SkillsPage() {
   const visibleSkills =
     selectedCategory === "All"
       ? allSkills
-      : skillsByCategory[selectedCategory] ?? [];
+      : (skillsByCategory[selectedCategory] ?? []);
 
   const selectedKey =
     selectedCategory === "All"
@@ -623,7 +600,7 @@ export default function SkillsPage() {
     <SkillsContext.Provider
       value={{ skills: visibleSkills, loading, selectedKey }}
     >
-      <div className="flex h-screen bg-white dark:bg-gray-950 font-sans overflow-hidden">
+      <div className="flex h-[calc(100vh-56px)] bg-white dark:bg-gray-900 overflow-hidden">
         <Sidebar
           categories={categories}
           allCount={allSkills.length}
