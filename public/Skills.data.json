@@ -33,8 +33,8 @@
     "skillId": "4",
     "skillCategory": "Frontend",
     "skillName": "TypeScript",
-    "experience": "3+ Years",
-    "projects": "180+",
+    "experience": "2+ Years",
+    "projects": "20+",
     "docLink": "https://www.typescriptlang.org/docs/",
     "githubLink": "https://github.com/gyanaprakashkhandual/typescript",
     "proficiency": "88%"
@@ -43,8 +43,8 @@
     "skillId": "5",
     "skillCategory": "Frontend",
     "skillName": "React.js",
-    "experience": "4+ Years",
-    "projects": "280+",
+    "experience": "3+ Years",
+    "projects": "100+",
     "docLink": "https://react.dev/",
     "githubLink": "https://github.com/gyanaprakashkhandual/reactjs",
     "proficiency": "94%"
@@ -54,7 +54,7 @@
     "skillCategory": "Frontend",
     "skillName": "Next.js",
     "experience": "3+ Years",
-    "projects": "120+",
+    "projects": "80+",
     "docLink": "https://nextjs.org/docs",
     "githubLink": "https://github.com/gyanaprakashkhandual/nextjs",
     "proficiency": "90%"
@@ -63,8 +63,8 @@
     "skillId": "7",
     "skillCategory": "Frontend",
     "skillName": "Redux Toolkit",
-    "experience": "3+ Years",
-    "projects": "110+",
+    "experience": "2+ Years",
+    "projects": "6+",
     "docLink": "https://redux-toolkit.js.org/",
     "githubLink": "https://github.com/gyanaprakashkhandual/redux-toolkit",
     "proficiency": "87%"
@@ -74,7 +74,7 @@
     "skillCategory": "Frontend",
     "skillName": "Tailwind CSS",
     "experience": "3+ Years",
-    "projects": "200+",
+    "projects": "300+",
     "docLink": "https://tailwindcss.com/docs",
     "githubLink": "https://github.com/gyanaprakashkhandual/tailwindcss",
     "proficiency": "93%"
@@ -83,8 +83,8 @@
     "skillId": "9",
     "skillCategory": "Frontend",
     "skillName": "Material UI",
-    "experience": "3+ Years",
-    "projects": "130+",
+    "experience": "1+ Years",
+    "projects": "2+",
     "docLink": "https://mui.com/material-ui/",
     "githubLink": "https://github.com/gyanaprakashkhandual/material-ui",
     "proficiency": "85%"
@@ -94,7 +94,7 @@
     "skillCategory": "Frontend",
     "skillName": "Shadcn UI",
     "experience": "1+ Years",
-    "projects": "60+",
+    "projects": "1+",
     "docLink": "https://ui.shadcn.com/docs",
     "githubLink": "https://github.com/gyanaprakashkhandual/shadcn-ui",
     "proficiency": "82%"
@@ -114,7 +114,7 @@
     "skillCategory": "Frontend",
     "skillName": "React Query",
     "experience": "2+ Years",
-    "projects": "90+",
+    "projects": "1+",
     "docLink": "https://tanstack.com/query/latest/docs/framework/react/overview",
     "githubLink": "https://github.com/gyanaprakashkhandual/react-query",
     "proficiency": "84%"
@@ -123,7 +123,7 @@
     "skillId": "13",
     "skillCategory": "Frontend",
     "skillName": "Axios",
-    "experience": "4+ Years",
+    "experience": "3+ Years",
     "projects": "250+",
     "docLink": "https://axios-http.com/docs/intro",
     "githubLink": "https://github.com/gyanaprakashkhandual/axios",
@@ -133,8 +133,8 @@
     "skillId": "14",
     "skillCategory": "Backend",
     "skillName": "Node.js",
-    "experience": "4+ Years",
-    "projects": "260+",
+    "experience": "3+ Years",
+    "projects": "65+",
     "docLink": "https://nodejs.org/en/docs",
     "githubLink": "https://github.com/gyanaprakashkhandual/nodejs",
     "proficiency": "92%"
@@ -143,8 +143,8 @@
     "skillId": "15",
     "skillCategory": "Backend",
     "skillName": "Express.js",
-    "experience": "4+ Years",
-    "projects": "240+",
+    "experience": "3+ Years",
+    "projects": "65+",
     "docLink": "https://expressjs.com/",
     "githubLink": "https://github.com/gyanaprakashkhandual/expressjs",
     "proficiency": "91%"
@@ -153,8 +153,8 @@
     "skillId": "16",
     "skillCategory": "Backend",
     "skillName": "REST API",
-    "experience": "4+ Years",
-    "projects": "300+",
+    "experience": "3+ Years",
+    "projects": "65+",
     "docLink": "https://restfulapi.net/",
     "githubLink": "https://github.com/gyanaprakashkhandual/rest-api",
     "proficiency": "93%"
@@ -163,8 +163,8 @@
     "skillId": "17",
     "skillCategory": "Backend",
     "skillName": "GraphQL",
-    "experience": "2+ Years",
-    "projects": "70+",
+    "experience": "1+ Years",
+    "projects": "1+",
     "docLink": "https://graphql.org/learn/",
     "githubLink": "https://github.com/gyanaprakashkhandual/graphql",
     "proficiency": "78%"
@@ -174,7 +174,7 @@
     "skillCategory": "Backend",
     "skillName": "Socket.IO",
     "experience": "2+ Years",
-    "projects": "50+",
+    "projects": "2+",
     "docLink": "https://socket.io/docs/v4/",
     "githubLink": "https://github.com/gyanaprakashkhandual/socketio",
     "proficiency": "80%"
@@ -184,7 +184,7 @@
     "skillCategory": "Backend",
     "skillName": "JWT Authentication",
     "experience": "3+ Years",
-    "projects": "160+",
+    "projects": "15+",
     "docLink": "https://jwt.io/introduction",
     "githubLink": "https://github.com/gyanaprakashkhandual/jwt-auth",
     "proficiency": "88%"
@@ -193,8 +193,8 @@
     "skillId": "20",
     "skillCategory": "Backend",
     "skillName": "Passport.js",
-    "experience": "2+ Years",
-    "projects": "60+",
+    "experience": "3+ Years",
+    "projects": "10+",
     "docLink": "https://www.passportjs.org/docs/",
     "githubLink": "https://github.com/gyanaprakashkhandual/passportjs",
     "proficiency": "79%"
@@ -203,8 +203,8 @@
     "skillId": "21",
     "skillCategory": "Database",
     "skillName": "MongoDB",
-    "experience": "4+ Years",
-    "projects": "220+",
+    "experience": "3+ Years",
+    "projects": "25+",
     "docLink": "https://www.mongodb.com/docs/",
     "githubLink": "https://github.com/gyanaprakashkhandual/mongodb",
     "proficiency": "91%"
@@ -213,8 +213,8 @@
     "skillId": "22",
     "skillCategory": "Database",
     "skillName": "Mongoose",
-    "experience": "4+ Years",
-    "projects": "210+",
+    "experience": "3+ Years",
+    "projects": "25+",
     "docLink": "https://mongoosejs.com/docs/",
     "githubLink": "https://github.com/gyanaprakashkhandual/mongoose",
     "proficiency": "90%"
@@ -223,8 +223,8 @@
     "skillId": "23",
     "skillCategory": "Database",
     "skillName": "PostgreSQL",
-    "experience": "2+ Years",
-    "projects": "80+",
+    "experience": "1+ Years",
+    "projects": "1+",
     "docLink": "https://www.postgresql.org/docs/",
     "githubLink": "https://github.com/gyanaprakashkhandual/postgresql",
     "proficiency": "78%"
@@ -233,8 +233,8 @@
     "skillId": "24",
     "skillCategory": "Database",
     "skillName": "Redis",
-    "experience": "2+ Years",
-    "projects": "60+",
+    "experience": "1+ Years",
+    "projects": "2+",
     "docLink": "https://redis.io/docs/latest/",
     "githubLink": "https://github.com/gyanaprakashkhandual/redis",
     "proficiency": "75%"
@@ -243,8 +243,8 @@
     "skillId": "25",
     "skillCategory": "Database",
     "skillName": "Firebase",
-    "experience": "3+ Years",
-    "projects": "100+",
+    "experience": "3+ Months",
+    "projects": "0",
     "docLink": "https://firebase.google.com/docs",
     "githubLink": "https://github.com/gyanaprakashkhandual/firebase",
     "proficiency": "83%"
@@ -253,8 +253,8 @@
     "skillId": "26",
     "skillCategory": "Database",
     "skillName": "Prisma ORM",
-    "experience": "2+ Years",
-    "projects": "70+",
+    "experience": "1+ Months",
+    "projects": "0",
     "docLink": "https://www.prisma.io/docs",
     "githubLink": "https://github.com/gyanaprakashkhandual/prisma",
     "proficiency": "80%"
@@ -264,7 +264,7 @@
     "skillCategory": "DevOps & Cloud",
     "skillName": "Git & GitHub",
     "experience": "5+ Years",
-    "projects": "500+",
+    "projects": "200+",
     "docLink": "https://docs.github.com/en",
     "githubLink": "https://github.com/gyanaprakashkhandual",
     "proficiency": "96%"
@@ -273,8 +273,8 @@
     "skillId": "28",
     "skillCategory": "DevOps & Cloud",
     "skillName": "Docker",
-    "experience": "2+ Years",
-    "projects": "70+",
+    "experience": "1+ Years",
+    "projects": "4+",
     "docLink": "https://docs.docker.com/",
     "githubLink": "https://github.com/gyanaprakashkhandual/docker",
     "proficiency": "78%"
@@ -284,7 +284,7 @@
     "skillCategory": "DevOps & Cloud",
     "skillName": "AWS",
     "experience": "2+ Years",
-    "projects": "50+",
+    "projects": "2+",
     "docLink": "https://docs.aws.amazon.com/",
     "githubLink": "https://github.com/gyanaprakashkhandual/aws",
     "proficiency": "72%"
@@ -303,8 +303,8 @@
     "skillId": "31",
     "skillCategory": "DevOps & Cloud",
     "skillName": "Nginx",
-    "experience": "2+ Years",
-    "projects": "40+",
+    "experience": "1+ Years",
+    "projects": "2+",
     "docLink": "https://nginx.org/en/docs/",
     "githubLink": "https://github.com/gyanaprakashkhandual/nginx",
     "proficiency": "73%"
@@ -313,8 +313,8 @@
     "skillId": "32",
     "skillCategory": "Manual Testing",
     "skillName": "Test Case Design",
-    "experience": "4+ Years",
-    "projects": "200+",
+    "experience": "3+ Years",
+    "projects": "15+",
     "docLink": "https://www.istqb.org/certifications/certified-tester-foundation-level",
     "githubLink": "https://github.com/gyanaprakashkhandual/test-cases",
     "proficiency": "93%"
@@ -323,8 +323,8 @@
     "skillId": "33",
     "skillCategory": "Manual Testing",
     "skillName": "Bug Reporting & Tracking",
-    "experience": "4+ Years",
-    "projects": "190+",
+    "experience": "3+ Years",
+    "projects": "15+",
     "docLink": "https://www.atlassian.com/software/jira",
     "githubLink": "https://github.com/gyanaprakashkhandual/bug-reports",
     "proficiency": "92%"
@@ -334,7 +334,7 @@
     "skillCategory": "Manual Testing",
     "skillName": "Exploratory Testing",
     "experience": "3+ Years",
-    "projects": "130+",
+    "projects": "15+",
     "docLink": "https://www.guru99.com/exploratory-testing.html",
     "githubLink": "https://github.com/gyanaprakashkhandual/exploratory-testing",
     "proficiency": "88%"
@@ -344,7 +344,7 @@
     "skillCategory": "Manual Testing",
     "skillName": "Regression Testing",
     "experience": "3+ Years",
-    "projects": "150+",
+    "projects": "15+",
     "docLink": "https://www.guru99.com/regression-testing.html",
     "githubLink": "https://github.com/gyanaprakashkhandual/regression-testing",
     "proficiency": "90%"
@@ -353,8 +353,8 @@
     "skillId": "36",
     "skillCategory": "Manual Testing",
     "skillName": "API Testing (Postman)",
-    "experience": "4+ Years",
-    "projects": "220+",
+    "experience": "3+ Years",
+    "projects": "15+",
     "docLink": "https://learning.postman.com/docs/introduction/overview/",
     "githubLink": "https://github.com/gyanaprakashkhandual/postman-collections",
     "proficiency": "94%"
@@ -363,8 +363,8 @@
     "skillId": "37",
     "skillCategory": "Manual Testing",
     "skillName": "Jira",
-    "experience": "4+ Years",
-    "projects": "180+",
+    "experience": "3+ Years",
+    "projects": "20+",
     "docLink": "https://support.atlassian.com/jira-software-cloud/",
     "githubLink": "https://github.com/gyanaprakashkhandual/jira-workflows",
     "proficiency": "91%"
@@ -374,7 +374,7 @@
     "skillCategory": "Manual Testing",
     "skillName": "TestRail",
     "experience": "2+ Years",
-    "projects": "80+",
+    "projects": "1+",
     "docLink": "https://support.testrail.com/hc/en-us",
     "githubLink": "https://github.com/gyanaprakashkhandual/testrail",
     "proficiency": "82%"
@@ -384,7 +384,7 @@
     "skillCategory": "Manual Testing",
     "skillName": "Smoke & Sanity Testing",
     "experience": "3+ Years",
-    "projects": "140+",
+    "projects": "15+",
     "docLink": "https://www.guru99.com/smoke-testing.html",
     "githubLink": "https://github.com/gyanaprakashkhandual/smoke-testing",
     "proficiency": "89%"
@@ -404,7 +404,7 @@
     "skillCategory": "Automation Testing",
     "skillName": "Selenium WebDriver",
     "experience": "3+ Years",
-    "projects": "130+",
+    "projects": "15+",
     "docLink": "https://www.selenium.dev/documentation/",
     "githubLink": "https://github.com/gyanaprakashkhandual/selenium",
     "proficiency": "88%"
@@ -414,7 +414,7 @@
     "skillCategory": "Automation Testing",
     "skillName": "Cypress",
     "experience": "3+ Years",
-    "projects": "110+",
+    "projects": "15+",
     "docLink": "https://docs.cypress.io/guides/overview/why-cypress",
     "githubLink": "https://github.com/gyanaprakashkhandual/cypress",
     "proficiency": "90%"
@@ -423,8 +423,8 @@
     "skillId": "43",
     "skillCategory": "Automation Testing",
     "skillName": "Playwright",
-    "experience": "2+ Years",
-    "projects": "80+",
+    "experience": "3+ Years",
+    "projects": "15+",
     "docLink": "https://playwright.dev/docs/intro",
     "githubLink": "https://github.com/gyanaprakashkhandual/playwright",
     "proficiency": "85%"
@@ -434,7 +434,7 @@
     "skillCategory": "Automation Testing",
     "skillName": "Jest",
     "experience": "3+ Years",
-    "projects": "150+",
+    "projects": "15+",
     "docLink": "https://jestjs.io/docs/getting-started",
     "githubLink": "https://github.com/gyanaprakashkhandual/jest",
     "proficiency": "89%"
@@ -443,8 +443,8 @@
     "skillId": "45",
     "skillCategory": "Automation Testing",
     "skillName": "Mocha & Chai",
-    "experience": "2+ Years",
-    "projects": "70+",
+    "experience": "3+ Years",
+    "projects": "20+",
     "docLink": "https://mochajs.org/",
     "githubLink": "https://github.com/gyanaprakashkhandual/mocha-chai",
     "proficiency": "80%"
@@ -454,7 +454,7 @@
     "skillCategory": "Automation Testing",
     "skillName": "Appium",
     "experience": "2+ Years",
-    "projects": "50+",
+    "projects": "3+",
     "docLink": "https://appium.io/docs/en/latest/",
     "githubLink": "https://github.com/gyanaprakashkhandual/appium",
     "proficiency": "75%"
@@ -463,8 +463,8 @@
     "skillId": "47",
     "skillCategory": "Automation Testing",
     "skillName": "K6 (Load Testing)",
-    "experience": "1+ Years",
-    "projects": "30+",
+    "experience": "2+ Years",
+    "projects": "20+",
     "docLink": "https://grafana.com/docs/k6/latest/",
     "githubLink": "https://github.com/gyanaprakashkhandual/k6-load-testing",
     "proficiency": "70%"
@@ -474,7 +474,7 @@
     "skillCategory": "Automation Testing",
     "skillName": "GitHub Actions CI/CD",
     "experience": "2+ Years",
-    "projects": "90+",
+    "projects": "10+",
     "docLink": "https://docs.github.com/en/actions",
     "githubLink": "https://github.com/gyanaprakashkhandual/github-actions",
     "proficiency": "82%"
@@ -484,7 +484,7 @@
     "skillCategory": "Automation Testing",
     "skillName": "Supertest (API Automation)",
     "experience": "2+ Years",
-    "projects": "80+",
+    "projects": "3+",
     "docLink": "https://github.com/ladjs/supertest",
     "githubLink": "https://github.com/gyanaprakashkhandual/supertest",
     "proficiency": "83%"
@@ -494,7 +494,7 @@
     "skillCategory": "Automation Testing",
     "skillName": "Newman (Postman CLI)",
     "experience": "2+ Years",
-    "projects": "60+",
+    "projects": "2+",
     "docLink": "https://learning.postman.com/docs/collections/using-newman-cli/command-line-integration-with-newman/",
     "githubLink": "https://github.com/gyanaprakashkhandual/newman",
     "proficiency": "81%"
@@ -504,7 +504,7 @@
     "skillCategory": "Ethical Hacking",
     "skillName": "Kali Linux",
     "experience": "3+ Years",
-    "projects": "90+",
+    "projects": "1+",
     "docLink": "https://www.kali.org/docs/",
     "githubLink": "https://github.com/gyanaprakashkhandual/kali-linux",
     "proficiency": "85%"
@@ -513,8 +513,8 @@
     "skillId": "52",
     "skillCategory": "Ethical Hacking",
     "skillName": "Nmap",
-    "experience": "3+ Years",
-    "projects": "80+",
+    "experience": "1+ Years",
+    "projects": "1+",
     "docLink": "https://nmap.org/book/man.html",
     "githubLink": "https://github.com/gyanaprakashkhandual/nmap",
     "proficiency": "86%"
@@ -523,8 +523,8 @@
     "skillId": "53",
     "skillCategory": "Ethical Hacking",
     "skillName": "Metasploit Framework",
-    "experience": "2+ Years",
-    "projects": "50+",
+    "experience": "1+ Years",
+    "projects": "4+",
     "docLink": "https://docs.metasploit.com/",
     "githubLink": "https://github.com/gyanaprakashkhandual/metasploit",
     "proficiency": "78%"
@@ -533,8 +533,8 @@
     "skillId": "54",
     "skillCategory": "Ethical Hacking",
     "skillName": "Burp Suite",
-    "experience": "3+ Years",
-    "projects": "100+",
+    "experience": "2+ Years",
+    "projects": "8+",
     "docLink": "https://portswigger.net/burp/documentation",
     "githubLink": "https://github.com/gyanaprakashkhandual/burp-suite",
     "proficiency": "87%"
@@ -543,48 +543,28 @@
     "skillId": "55",
     "skillCategory": "Ethical Hacking",
     "skillName": "OWASP Top 10",
-    "experience": "3+ Years",
-    "projects": "110+",
+    "experience": "2+ Years",
+    "projects": "8+",
     "docLink": "https://owasp.org/www-project-top-ten/",
     "githubLink": "https://github.com/gyanaprakashkhandual/owasp",
     "proficiency": "89%"
   },
   {
-    "skillId": "56",
-    "skillCategory": "Ethical Hacking",
-    "skillName": "Wireshark",
-    "experience": "2+ Years",
-    "projects": "60+",
-    "docLink": "https://www.wireshark.org/docs/",
-    "githubLink": "https://github.com/gyanaprakashkhandual/wireshark",
-    "proficiency": "79%"
-  },
-  {
     "skillId": "57",
     "skillCategory": "Ethical Hacking",
     "skillName": "Nikto",
-    "experience": "2+ Years",
-    "projects": "50+",
+    "experience": "1+ Years",
+    "projects": "2+",
     "docLink": "https://cirt.net/Nikto2",
     "githubLink": "https://github.com/gyanaprakashkhandual/nikto",
     "proficiency": "76%"
   },
   {
-    "skillId": "58",
-    "skillCategory": "Ethical Hacking",
-    "skillName": "SQLMap",
-    "experience": "2+ Years",
-    "projects": "55+",
-    "docLink": "https://sqlmap.org/",
-    "githubLink": "https://github.com/gyanaprakashkhandual/sqlmap",
-    "proficiency": "77%"
-  },
-  {
     "skillId": "59",
     "skillCategory": "Ethical Hacking",
     "skillName": "Hydra (Password Cracking)",
-    "experience": "2+ Years",
-    "projects": "40+",
+    "experience": "1+ Years",
+    "projects": "0",
     "docLink": "https://github.com/vanhauser-thc/thc-hydra",
     "githubLink": "https://github.com/gyanaprakashkhandual/hydra",
     "proficiency": "74%"
@@ -594,40 +574,10 @@
     "skillCategory": "Ethical Hacking",
     "skillName": "John the Ripper",
     "experience": "1+ Years",
-    "projects": "30+",
+    "projects": "0",
     "docLink": "https://www.openwall.com/john/doc/",
     "githubLink": "https://github.com/gyanaprakashkhandual/john-the-ripper",
     "proficiency": "70%"
-  },
-  {
-    "skillId": "61",
-    "skillCategory": "Ethical Hacking",
-    "skillName": "Aircrack-ng",
-    "experience": "1+ Years",
-    "projects": "25+",
-    "docLink": "https://www.aircrack-ng.org/documentation.html",
-    "githubLink": "https://github.com/gyanaprakashkhandual/aircrack-ng",
-    "proficiency": "68%"
-  },
-  {
-    "skillId": "62",
-    "skillCategory": "Ethical Hacking",
-    "skillName": "OSINT Techniques",
-    "experience": "2+ Years",
-    "projects": "65+",
-    "docLink": "https://osintframework.com/",
-    "githubLink": "https://github.com/gyanaprakashkhandual/osint",
-    "proficiency": "80%"
-  },
-  {
-    "skillId": "63",
-    "skillCategory": "Ethical Hacking",
-    "skillName": "Gobuster / DirBuster",
-    "experience": "2+ Years",
-    "projects": "45+",
-    "docLink": "https://github.com/OJ/gobuster",
-    "githubLink": "https://github.com/gyanaprakashkhandual/gobuster",
-    "proficiency": "75%"
   },
   {
     "skillId": "64",
@@ -638,15 +588,5 @@
     "docLink": "https://github.com/trustedsec/social-engineer-toolkit",
     "githubLink": "https://github.com/gyanaprakashkhandual/set-toolkit",
     "proficiency": "67%"
-  },
-  {
-    "skillId": "65",
-    "skillCategory": "Ethical Hacking",
-    "skillName": "Pentesting Methodologies (CEH/PTES)",
-    "experience": "2+ Years",
-    "projects": "55+",
-    "docLink": "https://www.eccouncil.org/train-certify/certified-ethical-hacker-ceh/",
-    "githubLink": "https://github.com/gyanaprakashkhandual/pentesting",
-    "proficiency": "82%"
   }
 ]
