@@ -24,11 +24,11 @@ technologies:
   - Zoho Workspace
 status: Live
 liveDemo: https://mega-jewelers-testing-report.vercel.app/
-repository: https://github.com/GyanaprakashKhandual/mega-jewelers-testing
+repository: https://github.com/gyanaprakashkhandual/mega-jewelers-testing
 contributors:
   - name: Gyana Prakash Khandual
     role: Automation & QA Engineer
-    github: https://github.com/GyanaprakashKhandual
+    github: https://github.com/gyanaprakashkhandual
     linkedin: https://www.linkedin.com/in/gyanaprakashkhandual/
     email: gyanprakashkhandual@gmail.com
 images:
@@ -124,7 +124,7 @@ The standout aspect of this testing framework is its integration of Selenium aut
 
 **Gyana Prakash Khandual** — Automation & QA Engineer
 
-GitHub: https://github.com/GyanaprakashKhandual
+GitHub: https://github.com/gyanaprakashkhandual
 
 LinkedIn: https://www.linkedin.com/in/gyanaprakashkhandual/
 

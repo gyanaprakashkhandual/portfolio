@@ -20,12 +20,12 @@ technologies:
   - Render
 status: Live
 liveDemo: https://mega-jewelers.vercel.app/
-repositoryFrontend: https://github.com/GyanaprakashKhandual/mega-jewelers-frontend
-repositoryBackend: https://github.com/GyanaprakashKhandual/mega-jewelers-backend
+repositoryFrontend: https://github.com/gyanaprakashkhandual/mega-jewelers-frontend
+repositoryBackend: https://github.com/gyanaprakashkhandual/mega-jewelers-backend
 contributors:
   - name: Gyana Prakash Khandual
     role: Full Stack Developer
-    github: https://github.com/GyanaprakashKhandual
+    github: https://github.com/gyanaprakashkhandual
     linkedin: https://www.linkedin.com/in/gyanaprakashkhandual/
     email: gyanprakashkhandual@gmail.com
 images:
@@ -116,7 +116,7 @@ Mega Jewelers stands out by combining e-commerce functionality with a powerful i
 
 **Gyana Prakash Khandual** — Full Stack Developer
 
-GitHub: https://github.com/GyanaprakashKhandual
+GitHub: https://github.com/gyanaprakashkhandual
 
 LinkedIn: https://www.linkedin.com/in/gyanaprakashkhandual/
 

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/set-state-in-effect */
 "use client";
@@ -16,18 +18,10 @@ import {
   Code2,
 } from "lucide-react";
 import { MessageParser } from "@/app/message-parser/core/Parser.core";
+import { Project, getProjectBySlug } from "../script/Projects";
 
-interface ProjectMeta {
-  slug: string;
-  title: string;
-  type: string;
-  tags: string[];
-  technologies: string[];
-  liveDemo: string;
-  repositoryFrontend: string;
-  repositoryBackend: string;
-  images: string[];
-  description: string;
+interface ProjectMeta extends Project {
+  images: any;
 }
 
 function parseFrontmatter(raw: string): {
@@ -208,6 +202,9 @@ export default function ProjectDetailPage() {
           repositoryBackend: (parsed.repositoryBackend as string) ?? "",
           images: (parsed.images as string[]) ?? [],
           description: extractDescription(content),
+          status: (parsed.status as string) ?? "",
+          image: (parsed.image as string) ?? "",
+          mdPath: (parsed.mdPath as string) ?? "",
         });
 
         setBody(content);

@@ -23,11 +23,11 @@ technologies:
   - Zoho Workspace
 status: Live
 liveDemo: https://rr-crop-testing-report.vercel.app/
-repository: https://github.com/GyanaprakashKhandual/rr-crop-testing
+repository: https://github.com/gyanaprakashkhandual/rr-crop-testing
 contributors:
   - name: Gyana Prakash Khandual
     role: Automation & QA Engineer
-    github: https://github.com/GyanaprakashKhandual
+    github: https://github.com/gyanaprakashkhandual
     linkedin: https://www.linkedin.com/in/gyanaprakashkhandual/
     email: gyanprakashkhandual@gmail.com
 images:
@@ -123,7 +123,7 @@ The standout feature of this testing framework is its ability to automate comple
 
 **Gyana Prakash Khandual** — Automation & QA Engineer
 
-GitHub: https://github.com/GyanaprakashKhandual
+GitHub: https://github.com/gyanaprakashkhandual
 
 LinkedIn: https://www.linkedin.com/in/gyanaprakashkhandual/
 

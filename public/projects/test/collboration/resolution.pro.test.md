@@ -23,11 +23,11 @@ technologies:
   - Ledge Meter
 status: Live
 liveDemo: https://resolution-pro-testing-report.vercel.app/
-repository: https://github.com/GyanaprakashKhandual/resolution-pro-testing
+repository: https://github.com/gyanaprakashkhandual/resolution-pro-testing
 contributors:
   - name: Gyana Prakash Khandual
     role: Automation & QA Engineer
-    github: https://github.com/GyanaprakashKhandual
+    github: https://github.com/gyanaprakashkhandual
     linkedin: https://www.linkedin.com/in/gyanaprakashkhandual/
     email: gyanprakashkhandual@gmail.com
 images:
@@ -124,7 +124,7 @@ The testing infrastructure stands out due to its BDD-based automation architectu
 
 **Gyana Prakash Khandual** — Automation & QA Engineer
 
-GitHub: https://github.com/GyanaprakashKhandual
+GitHub: https://github.com/gyanaprakashkhandual
 
 LinkedIn: https://www.linkedin.com/in/gyanaprakashkhandual/
 

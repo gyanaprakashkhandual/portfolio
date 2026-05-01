@@ -3,107 +3,26 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { useRouter, usePathname } from "next/navigation";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Search,
   X,
   ChevronRight,
-  Loader2,
   SlidersHorizontal,
   Check,
 } from "lucide-react";
-
-interface ProjectMeta {
-  slug: string;
-  title: string;
-  description: string;
-  type: string;
-  tags: string[];
-}
-
-const PROJECT_SLUGS = ["caffetest", "resolution-pro"];
-
-function parseFrontmatter(raw: string): Record<string, unknown> {
-  const match = raw.match(/^---\n([\s\S]*?)\n---/);
-  if (!match) return {};
-
-  const meta: Record<string, unknown> = {};
-  const yamlBlock = match[1];
-
-  let currentKey = "";
-  let inArray = false;
-  const arrayBuffer: string[] = [];
-
-  for (const line of yamlBlock.split("\n")) {
-    const arrayItem = line.match(/^\s{2}-\s+(.+)/);
-    const keyValue = line.match(/^([a-zA-Z0-9_]+):\s*(.*)/);
-
-    if (arrayItem && inArray) {
-      arrayBuffer.push(arrayItem[1].trim());
-    } else if (keyValue) {
-      if (inArray && currentKey) {
-        meta[currentKey] = [...arrayBuffer];
-        arrayBuffer.length = 0;
-        inArray = false;
-      }
-      currentKey = keyValue[1];
-      const val = keyValue[2].trim();
-      if (val === "") {
-        inArray = true;
-      } else {
-        meta[currentKey] = val;
-        inArray = false;
-      }
-    }
-  }
-
-  if (inArray && currentKey) meta[currentKey] = [...arrayBuffer];
-
-  return meta;
-}
-
-function extractDescription(raw: string): string {
-  const body = raw.replace(/^---[\s\S]*?---\n?/, "").trim();
-  const lines = body.split("\n");
-  for (const line of lines) {
-    const trimmed = line.trim();
-    if (trimmed && !trimmed.startsWith("#")) return trimmed;
-  }
-  return "";
-}
-
-async function loadProjectMeta(slug: string): Promise<ProjectMeta | null> {
-  try {
-    const res = await fetch(`/projects/${slug}.md`);
-    if (!res.ok) return null;
-    const raw = await res.text();
-    const meta = parseFrontmatter(raw);
-
-    return {
-      slug: (meta.slug as string) ?? slug,
-      title: (meta.title as string) ?? "",
-      description: extractDescription(raw),
-      type: (meta.type as string) ?? "",
-      tags: (meta.tags as string[]) ?? [],
-    };
-  } catch {
-    return null;
-  }
-}
+import { projects, Project } from "../script/Projects";
 
 export default function ProjectsSidebar() {
-  const router = useRouter();
   const pathname = usePathname();
 
-  const [projects, setProjects] = useState<ProjectMeta[]>([]);
-  const [filtered, setFiltered] = useState<ProjectMeta[]>([]);
+  const [filtered, setFiltered] = useState<Project[]>(projects);
   const [query, setQuery] = useState("");
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
   const [filterOpen, setFilterOpen] = useState(false);
   const [activeTags, setActiveTags] = useState<Set<string>>(new Set());
-  const [allTags, setAllTags] = useState<string[]>([]);
+  const allTags = Array.from(new Set(projects.flatMap((p) => p.tags))).sort();
 
   const filterRef = useRef<HTMLDivElement>(null);
 
@@ -115,20 +34,6 @@ export default function ProjectsSidebar() {
     }
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
-  }, []);
-
-  useEffect(() => {
-    Promise.all(PROJECT_SLUGS.map(loadProjectMeta))
-      .then((results) => {
-        const valid = results.filter(Boolean) as ProjectMeta[];
-        if (valid.length === 0) throw new Error("No projects found.");
-        setProjects(valid);
-        setFiltered(valid);
-        const tags = Array.from(new Set(valid.flatMap((p) => p.tags))).sort();
-        setAllTags(tags);
-      })
-      .catch(() => setError("Failed to load projects."))
-      .finally(() => setLoading(false));
   }, []);
 
   useEffect(() => {
@@ -146,7 +51,7 @@ export default function ProjectsSidebar() {
         return matchesQuery && matchesTags;
       }),
     );
-  }, [query, projects, activeTags]);
+  }, [query, activeTags]);
 
   function toggleTag(tag: string) {
     setActiveTags((prev) => {
@@ -163,6 +68,12 @@ export default function ProjectsSidebar() {
   return (
     <aside className="w-72 shrink-0 flex flex-col h-full bg-white dark:bg-gray-950 border-r border-gray-200 dark:border-gray-800">
       <div className="px-4 pt-5 pb-4 border-b border-gray-200 dark:border-gray-800">
+        <div className="flex items-center gap-2 mb-3">
+          <p className="text-[11px] uppercase tracking-widest text-gray-400 dark:text-gray-500 font-medium">
+            All projects
+          </p>
+        </div>
+
         <div className="flex items-center gap-2">
           <div className="relative flex-1">
             <Search
@@ -306,24 +217,7 @@ export default function ProjectsSidebar() {
       </div>
 
       <div className="flex-1 overflow-y-auto py-2 px-2 scrollbar-thin scrollbar-thumb-gray-200 dark:scrollbar-thumb-gray-800">
-        {loading && (
-          <div className="flex flex-col items-center justify-center py-12 gap-3">
-            <Loader2 className="w-5 h-5 text-gray-400 dark:text-gray-600 animate-spin" />
-            <p className="text-xs text-gray-400 dark:text-gray-600">
-              Loading projects…
-            </p>
-          </div>
-        )}
-
-        {error && (
-          <div className="mx-2 my-4 px-4 py-3 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-100 dark:border-red-900/50">
-            <p className="text-center text-sm text-red-500 dark:text-red-400">
-              {error}
-            </p>
-          </div>
-        )}
-
-        {!loading && !error && filtered.length === 0 && (
+        {filtered.length === 0 && (
           <div className="flex flex-col items-center justify-center py-12 gap-2 px-4">
             <div className="w-10 h-10 rounded-xl bg-gray-100 dark:bg-gray-800/60 flex items-center justify-center mb-1">
               <Search
@@ -343,49 +237,35 @@ export default function ProjectsSidebar() {
         <AnimatePresence initial={false}>
           {filtered.map((project, i) => {
             const isActive = pathname === `/projects/${project.slug}`;
+            const isTagMatch =
+              query.length > 0 &&
+              project.tags.some((tag) =>
+                tag.toLowerCase().includes(query.toLowerCase()),
+              );
+            const isTagFiltered = project.tags.some((tag) =>
+              activeTags.has(tag),
+            );
+
             return (
-              <motion.button
+              <motion.div
                 key={project.slug}
                 initial={{ opacity: 0, x: -8 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -8 }}
                 transition={{ delay: i * 0.04, duration: 0.2 }}
-                onClick={() => router.push(`/projects/${project.slug}`)}
-                className={`w-full text-left px-3 py-3 rounded-xl mb-1 group transition-all duration-150 ${
-                  isActive
-                    ? "bg-gray-900 dark:bg-white border border-gray-900 dark:border-white shadow-sm"
-                    : "bg-transparent border border-transparent hover:bg-gray-50 dark:hover:bg-gray-900 hover:border-gray-200 dark:hover:border-gray-700"
-                }`}
               >
-                <div className="flex items-start justify-between gap-2">
-                  <div className="flex-1 min-w-0">
-                    <p
-                      className={`text-sm font-semibold truncate mb-0.5 transition-colors ${
-                        isActive
-                          ? "text-white dark:text-gray-900"
-                          : "text-gray-800 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-white"
-                      }`}
-                    >
-                      {project.title}
-                    </p>
-                    <p
-                      className={`text-xs line-clamp-2 leading-relaxed ${
-                        isActive
-                          ? "text-gray-300 dark:text-gray-600"
-                          : "text-gray-500 dark:text-gray-500"
-                      }`}
-                    >
-                      {project.description}
-                    </p>
-                    <div className="flex flex-wrap gap-1 mt-2">
-                      {project.tags.slice(0, 2).map((tag) => {
-                        const isTagMatch =
-                          query.length > 0 &&
-                          tag.toLowerCase().includes(query.toLowerCase());
-                        const isTagFiltered = activeTags.has(tag);
-                        return (
+                <Link href={`/projects/${project.slug}`}>
+                  <div
+                    className={`w-full text-left px-3 py-3 rounded-xl mb-1 group transition-all duration-150 ${
+                      isActive
+                        ? "bg-gray-900 dark:bg-white border border-gray-900 dark:border-white shadow-sm"
+                        : "bg-transparent border border-transparent hover:bg-gray-50 dark:hover:bg-gray-900 hover:border-gray-200 dark:hover:border-gray-700"
+                    }`}
+                  >
+                    <div className="flex items-start justify-between gap-2">
+                      <div className="flex-1 min-w-0">
+                        <div className="mb-1.5">
                           <span
-                            key={tag}
                             className={`text-[10px] px-1.5 py-0.5 rounded-md font-medium border transition-colors duration-150 ${
                               isActive
                                 ? isTagMatch || isTagFiltered
@@ -396,22 +276,43 @@ export default function ProjectsSidebar() {
                                   : "bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-gray-700"
                             }`}
                           >
-                            {tag}
+                            {project.type}
                           </span>
-                        );
-                      })}
+                        </div>
+
+                        <p
+                          className={`text-sm font-semibold truncate mb-0.5 transition-colors ${
+                            isActive
+                              ? "text-white dark:text-gray-900"
+                              : "text-gray-800 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-white"
+                          }`}
+                        >
+                          {project.title}
+                        </p>
+
+                        <p
+                          className={`text-xs line-clamp-2 leading-relaxed ${
+                            isActive
+                              ? "text-gray-300 dark:text-gray-600"
+                              : "text-gray-500 dark:text-gray-500"
+                          }`}
+                        >
+                          {project.description}
+                        </p>
+                      </div>
+
+                      <ChevronRight
+                        className={`w-3.5 h-3.5 shrink-0 mt-0.5 transition-all duration-150 ${
+                          isActive
+                            ? "text-gray-300 dark:text-gray-600 opacity-100 translate-x-0"
+                            : "text-gray-400 dark:text-gray-600 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5"
+                        }`}
+                        strokeWidth={2}
+                      />
                     </div>
                   </div>
-                  <ChevronRight
-                    className={`w-3.5 h-3.5 shrink-0 mt-0.5 transition-all duration-150 ${
-                      isActive
-                        ? "text-gray-300 dark:text-gray-600 opacity-100 translate-x-0"
-                        : "text-gray-400 dark:text-gray-600 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5"
-                    }`}
-                    strokeWidth={2}
-                  />
-                </div>
-              </motion.button>
+                </Link>
+              </motion.div>
             );
           })}
         </AnimatePresence>
@@ -419,9 +320,7 @@ export default function ProjectsSidebar() {
 
       <div className="px-4 py-3 border-t border-gray-200 dark:border-gray-800">
         <p className="text-[11px] text-gray-400 dark:text-gray-600 text-center">
-          {!loading && !error
-            ? `${projects.length} total project${projects.length !== 1 ? "s" : ""}`
-            : ""}
+          {`${projects.length} total project${projects.length !== 1 ? "s" : ""}`}
         </p>
       </div>
     </aside>

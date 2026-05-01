@@ -22,11 +22,11 @@ technologies:
   - JIRA
 status: Live
 liveDemo: https://www.aussizzgroup.com/occusearch/
-repository: https://github.com/GyanaprakashKhandual/occusearch-testing
+repository: https://github.com/gyanaprakashkhandual/occusearch-testing
 contributors:
   - name: Gyana Prakash Khandual
     role: QA Engineer — Manual, API & Performance Testing
-    github: https://github.com/GyanaprakashKhandual
+    github: https://github.com/gyanaprakashkhandual
     linkedin: https://www.linkedin.com/in/gyanaprakashkhandual/
     email: gyanaprakashkhandual@gmail.com
 images:
@@ -125,7 +125,7 @@ The standout aspect of this testing project is the combination of domain-specifi
 
 **Gyana Prakash Khandual** — QA Engineer — Manual, API & Performance Testing
 
-GitHub: https://github.com/GyanaprakashKhandual
+GitHub: https://github.com/gyanaprakashkhandual
 
 LinkedIn: https://www.linkedin.com/in/gyanaprakashkhandual/
 

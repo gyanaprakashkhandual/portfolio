@@ -19,7 +19,7 @@ liveDemo: http://feel.vercel.app
 contributors:
   - name: Gyana Prakash Khandual
     role: Full Stack Developer
-    github: https://github.com/GyanaprakashKhandual
+    github: https://github.com/gyanaprakashkhandual
     linkedin: https://www.linkedin.com/in/gyanaprakashkhandual/
     email: gyanprakashkhandual@gmail.com
 ---
@@ -94,7 +94,7 @@ Feel stands out by combining mood tracking with reflective journaling in a calmi
 
 **Gyana Prakash Khandual** — Full Stack Developer
 
-GitHub: https://github.com/GyanaprakashKhandual
+GitHub: https://github.com/gyanaprakashkhandual
 
 LinkedIn: https://www.linkedin.com/in/gyanaprakashkhandual/
 

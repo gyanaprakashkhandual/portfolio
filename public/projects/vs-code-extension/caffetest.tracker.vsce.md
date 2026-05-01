@@ -22,11 +22,11 @@ technologies:
   - AI/ML Integration
 status: Live
 liveDemo: https://caffetest.com
-repository: https://github.com/GyanaprakashKhandual/caffetest-tracker
+repository: https://github.com/gyanaprakashkhandual/caffetest-tracker
 contributors:
   - name: Gyana Prakash Khandual
     role: Extension Developer & QA Engineer
-    github: https://github.com/GyanaprakashKhandual
+    github: https://github.com/gyanaprakashkhandual
     linkedin: https://www.linkedin.com/in/gyanaprakashkhandual/
     email: gyanaprakashkhandual@gmail.com
 images:
@@ -126,7 +126,7 @@ The standout feature of Caffetest Tracker is its AI-powered documentation engine
 
 **Gyana Prakash Khandual** — Extension Developer & QA Engineer
 
-GitHub: https://github.com/GyanaprakashKhandual
+GitHub: https://github.com/gyanaprakashkhandual
 
 LinkedIn: https://www.linkedin.com/in/gyanaprakashkhandual/
 

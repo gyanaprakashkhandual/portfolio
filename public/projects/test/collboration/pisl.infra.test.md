@@ -22,11 +22,11 @@ technologies:
   - Premiere Motion
 status: Live
 liveDemo: https://pisl-performance-report.vercel.app/
-repository: https://github.com/GyanaprakashKhandual/pisl-infra-testing
+repository: https://github.com/gyanaprakashkhandual/pisl-infra-testing
 contributors:
   - name: Gyana Prakash Khandual
     role: Automation & QA Engineer
-    github: https://github.com/GyanaprakashKhandual
+    github: https://github.com/gyanaprakashkhandual
     linkedin: https://www.linkedin.com/in/gyanaprakashkhandual/
     email: gyanprakashkhandual@gmail.com
 images:
@@ -121,7 +121,7 @@ The most unique aspect of PISL Infra is its custom SVG-based performance reporti
 
 **Gyana Prakash Khandual** — Automation & QA Engineer
 
-GitHub: https://github.com/GyanaprakashKhandual
+GitHub: https://github.com/gyanaprakashkhandual
 
 LinkedIn: https://www.linkedin.com/in/gyanaprakashkhandual/
 

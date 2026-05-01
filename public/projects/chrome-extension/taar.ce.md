@@ -23,7 +23,7 @@ docs: https://taar.vercel.app/docs
 contributors:
   - name: Gyana Prakash Khandual
     role: Full Stack Developer
-    github: https://github.com/GyanaprakashKhandual
+    github: https://github.com/gyanaprakashkhandual
     linkedin: https://www.linkedin.com/in/gyanaprakashkhandual/
     email: gyanprakashkhandual@gmail.com
 ---
@@ -111,7 +111,7 @@ Taar is not a standalone app — it lives directly inside every text field in th
 
 **Gyana Prakash Khandual** — Full Stack Developer
 
-GitHub: https://github.com/GyanaprakashKhandual
+GitHub: https://github.com/gyanaprakashkhandual
 
 LinkedIn: https://www.linkedin.com/in/gyanaprakashkhandual/
 

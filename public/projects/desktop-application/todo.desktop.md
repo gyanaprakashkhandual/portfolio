@@ -19,7 +19,7 @@ status: In Development
 contributors:
   - name: Gyana Prakash Khandual
     role: Desktop Developer
-    github: https://github.com/GyanaprakashKhandual
+    github: https://github.com/gyanaprakashkhandual
     linkedin: https://www.linkedin.com/in/gyanaprakashkhandual/
     email: gyanprakashkhandual@gmail.com
 ---
@@ -100,7 +100,7 @@ Todo Desktop leverages Electron to bring the full power of the Todo platform to 
 
 **Gyana Prakash Khandual** — Desktop Developer
 
-GitHub: https://github.com/GyanaprakashKhandual
+GitHub: https://github.com/gyanaprakashkhandual
 
 LinkedIn: https://www.linkedin.com/in/gyanaprakashkhandual/
 

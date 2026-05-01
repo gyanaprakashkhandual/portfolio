@@ -19,12 +19,12 @@ technologies:
   - Render
 status: Live
 liveDemo: https://caffetest.vercel.app/
-repositoryFrontend: https://github.com/GyanaprakashKhandual/bug-tracker-frontend
-repositoryBackend: https://github.com/GyanaprakashKhandual/bug-tracker-backend
+repositoryFrontend: https://github.com/gyanaprakashkhandual/bug-tracker-frontend
+repositoryBackend: https://github.com/gyanaprakashkhandual/bug-tracker-backend
 contributors:
   - name: Gyana Prakash Khandual
     role: Full Stack Developer
-    github: https://github.com/GyanaprakashKhandual
+    github: https://github.com/gyanaprakashkhandual
     linkedin: https://www.linkedin.com/in/gyanaprakashkhandual/
     email: gyanprakashkhandual@gmail.com
 images:
@@ -119,7 +119,7 @@ The most unique feature of CafeTest is the VS Code extension integration that le
 
 **Gyana Prakash Khandual** — Full Stack Developer
 
-GitHub: https://github.com/GyanaprakashKhandual
+GitHub: https://github.com/gyanaprakashkhandual
 
 LinkedIn: https://www.linkedin.com/in/gyanaprakashkhandual/
 

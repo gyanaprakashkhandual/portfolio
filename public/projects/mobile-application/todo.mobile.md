@@ -19,7 +19,7 @@ status: In Development
 contributors:
   - name: Gyana Prakash Khandual
     role: Mobile Developer
-    github: https://github.com/GyanaprakashKhandual
+    github: https://github.com/gyanaprakashkhandual
     linkedin: https://www.linkedin.com/in/gyanaprakashkhandual/
     email: gyanprakashkhandual@gmail.com
 ---
@@ -98,7 +98,7 @@ Todo Mobile provides a fully native experience that shares task data seamlessly 
 
 **Gyana Prakash Khandual** — Mobile Developer
 
-GitHub: https://github.com/GyanaprakashKhandual
+GitHub: https://github.com/gyanaprakashkhandual
 
 LinkedIn: https://www.linkedin.com/in/gyanaprakashkhandual/
 

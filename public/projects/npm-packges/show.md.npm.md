@@ -19,7 +19,7 @@ status: Published
 contributors:
   - name: Gyana Prakash Khandual
     role: Package Developer
-    github: https://github.com/GyanaprakashKhandual
+    github: https://github.com/gyanaprakashkhandual
     linkedin: https://www.linkedin.com/in/gyanaprakashkhandual/
     email: gyanprakashkhandual@gmail.com
 ---
@@ -97,7 +97,7 @@ ShowMarkdown stands out for its simplicity and React-first design, providing dev
 
 **Gyana Prakash Khandual** — Package Developer
 
-GitHub: https://github.com/GyanaprakashKhandual
+GitHub: https://github.com/gyanaprakashkhandual
 
 LinkedIn: https://www.linkedin.com/in/gyanaprakashkhandual/
 

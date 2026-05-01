@@ -36,7 +36,7 @@ A full-stack personal portfolio built with **Next.js 14**, **TypeScript**, **Tai
 
 ```bash
 # Clone the repo
-git clone https://github.com/GyanaprakashKhandual/portfolio-frontend.git
+git clone https://github.com/gyanaprakashkhandual/portfolio-frontend.git
 cd Portfolio-main
 
 # Install dependencies
@@ -54,4 +54,4 @@ MIT — free to use, modify, and distribute.
 
 ---
 
-Built by [Gyana Prakash Khandual](https://github.com/GyanaprakashKhandual)
+Built by [Gyana Prakash Khandual](https://github.com/gyanaprakashkhandual)

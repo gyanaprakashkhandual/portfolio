@@ -20,12 +20,12 @@ technologies:
   - Render
 status: Live
 liveDemo: https://resolution-pro-demo.vercel.app/
-repositoryFrontend: https://github.com/GyanaprakashKhandual/resolution-pro-frontend
-repositoryBackend: https://github.com/GyanaprakashKhandual/resolution-pro-backend
+repositoryFrontend: https://github.com/gyanaprakashkhandual/resolution-pro-frontend
+repositoryBackend: https://github.com/gyanaprakashkhandual/resolution-pro-backend
 contributors:
   - name: Gyana Prakash Khandual
     role: Full Stack Developer
-    github: https://github.com/GyanaprakashKhandual
+    github: https://github.com/gyanaprakashkhandual
     linkedin: https://www.linkedin.com/in/gyanaprakashkhandual/
     email: gyanprakashkhandual@gmail.com
 images:
@@ -112,7 +112,7 @@ Resolution Pro stands out by combining document sharing, meeting management, and
 
 **Gyana Prakash Khandual** — Full Stack Developer
 
-GitHub: https://github.com/GyanaprakashKhandual
+GitHub: https://github.com/gyanaprakashkhandual
 
 LinkedIn: https://www.linkedin.com/in/gyanaprakashkhandual/
 

@@ -21,11 +21,11 @@ technologies:
   - BDD
 status: Live
 liveDemo: https://marketplace.visualstudio.com/items?itemName=selenium-cucumber-pro
-repository: https://github.com/GyanaprakashKhandual/selenium-cucumber-pro
+repository: https://github.com/gyanaprakashkhandual/selenium-cucumber-pro
 contributors:
   - name: Gyana Prakash Khandual
     role: VS Code Extension Developer & QA Engineer
-    github: https://github.com/GyanaprakashKhandual
+    github: https://github.com/gyanaprakashkhandual
     linkedin: https://www.linkedin.com/in/gyanaprakashkhandual/
     email: gyanaprakashkhandual@gmail.com
 images:
@@ -122,7 +122,7 @@ The standout feature of Selenium-Cucumber Pro is its intelligent parameter detec
 
 **Gyana Prakash Khandual** — VS Code Extension Developer & QA Engineer
 
-GitHub: https://github.com/GyanaprakashKhandual
+GitHub: https://github.com/gyanaprakashkhandual
 
 LinkedIn: https://www.linkedin.com/in/gyanaprakashkhandual/
 
