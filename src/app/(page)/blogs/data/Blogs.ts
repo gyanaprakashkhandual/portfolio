@@ -1,4 +1,5 @@
 export interface Blog {
+    mdPath: string;
     slug: string;
     title: string;
     description: string;

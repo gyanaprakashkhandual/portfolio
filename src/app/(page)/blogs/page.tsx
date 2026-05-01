@@ -20,7 +20,6 @@ export default function BlogsPage() {
   return (
     <div className="min-h-screen bg-white dark:bg-zinc-950">
       <div className="max-w-4xl mx-auto px-5 pt-20 pb-28">
-        {/* Hero */}
         <motion.div
           initial={{ opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}
@@ -45,7 +44,6 @@ export default function BlogsPage() {
             working examples.
           </p>
 
-          {/* Stats row */}
           <div className="flex items-center gap-6 mt-8 pt-8 border-t border-zinc-100 dark:border-zinc-900">
             <div>
               <p className="text-2xl font-semibold text-black dark:text-white">
@@ -82,7 +80,6 @@ export default function BlogsPage() {
           </div>
         </motion.div>
 
-        {/* Blog list */}
         <div className="space-y-3">
           {blogs.map((blog, i) => (
             <motion.div
@@ -97,14 +94,12 @@ export default function BlogsPage() {
             >
               <Link href={`/blogs/${blog.slug}`} className="group block">
                 <div className="relative border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-200 bg-white dark:bg-zinc-950 overflow-hidden">
-                  {/* Hover bg fill */}
                   <motion.div
                     className="absolute inset-0 bg-zinc-50 dark:bg-zinc-900 opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-2xl"
                     aria-hidden
                   />
 
                   <div className="relative flex items-start justify-between gap-6">
-                    {/* Index number */}
                     <div className="shrink-0 w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800/80 flex items-center justify-center mt-0.5">
                       <span className="text-[11px] font-semibold text-zinc-400 dark:text-zinc-500 tabular-nums">
                         {String(i + 1).padStart(2, "0")}
@@ -112,7 +107,6 @@ export default function BlogsPage() {
                     </div>
 
                     <div className="flex-1 min-w-0">
-                      {/* Meta row */}
                       <div className="flex items-center gap-2.5 mb-3 flex-wrap">
                         <span
                           className={`text-[11px] border px-2.5 py-0.5 rounded-full uppercase tracking-wider font-medium flex items-center gap-1.5 ${tagStyles[blog.tagColor]}`}
@@ -142,17 +136,14 @@ export default function BlogsPage() {
                         </span>
                       </div>
 
-                      {/* Title */}
                       <h2 className="text-xl font-semibold text-black dark:text-white mb-2 leading-snug tracking-tight group-hover:text-zinc-700 dark:group-hover:text-zinc-200 transition-colors">
                         {blog.title}
                       </h2>
 
-                      {/* Description */}
                       <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4 max-w-xl">
                         {blog.description}
                       </p>
 
-                      {/* Author */}
                       <div className="flex items-center gap-2">
                         <div className="w-5 h-5 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center">
                           <User size={10} className="text-zinc-400" />
@@ -163,7 +154,6 @@ export default function BlogsPage() {
                       </div>
                     </div>
 
-                    {/* Arrow */}
                     <div className="shrink-0 mt-1">
                       <div className="w-9 h-9 rounded-full border border-zinc-200 dark:border-zinc-800 flex items-center justify-center group-hover:border-black dark:group-hover:border-white group-hover:bg-black dark:group-hover:bg-white transition-all duration-200">
                         <ArrowRight
