@@ -1,8 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Heart, Store } from "lucide-react";
+import { ArrowUpRight, Heart } from "lucide-react";
 import { BackgroundStrokes } from "./Strokes";
-import { FaNpm } from "react-icons/fa";
+import { FaGithub, FaNpm } from "react-icons/fa";
 
 const socials = [
   {
@@ -26,16 +26,62 @@ const socials = [
     ),
   },
   {
-    name: "Visual Studio Code Marketplace",
-    url: "https://marketplace.visualstudio.com/manage/publishers/gyanaprakashkhandual",
-    color: "hover:text-blue-600 hover:border-blue-600/30 hover:bg-blue-600/8",
-    icon: <Store />,
+    name: "GitHub",
+    url: "https://github.com/gyanaprakashkhandual",
+    color: "hover:text-black-600 hover:border-black-600/30 hover:bg-black-600/8",
+    icon: <FaGithub />,
   },
   {
     name: "NPM Profile",
-    url: "https://www.npmjs.com/package/sendenv",
+    url: "https://www.npmjs.com/~gyanaprakashkhandual",
     color: "hover:text-red-600 hover:border-red-600/30 hover:bg-red-600/8",
     icon: <FaNpm className="text-red-800" />,
+  },
+];
+
+const projectSections = [
+  {
+    label: "Web Applications",
+    items: [
+      { name: "Caffetest", slug: "caffetest" },
+      { name: "Fetch", slug: "fetch" },
+      { name: "Feel", slug: "feel" },
+    ],
+  },
+  {
+    label: "Testing Infrastructure",
+    items: [
+      { name: "Pioneers Wine", slug: "pisl-infra" },
+      { name: "Portfolio", slug: "resolution-pro-testing" },
+      { name: "Orange HRM", slug: "mega-jewelers-testing" },
+    ],
+  },
+  {
+    label: "VS Code Extensions",
+    items: [
+      { name: "Caffetest Tracker", slug: "caffetest-tracker" },
+      { name: "Selenium-Cucumber Pro", slug: "selenium-cucumber-pro" },
+    ],
+  },
+  {
+    label: "Chrome Extension",
+    items: [
+      { name: "Taar", slug: "taar" },
+    ],
+  },
+  {
+    label: "NPM Package",
+    items: [
+      { name: "ShowMarkdown", slug: "show-markdown" },
+      { name: "Encrypt ENV", slug: "encrypt-env" },
+    ],
+  },
+  {
+    label: "Mobile & Desktop",
+    items: [
+      { name: "Todo Mobile", slug: "todo-mobile" },
+      { name: "Todo Desktop", slug: "todo-desktop" },
+    ],
   },
 ];
 
@@ -45,7 +91,8 @@ export default function Footer() {
       <BackgroundStrokes />
       <div className="relative max-w-7xl mx-auto">
         <div className="grid gap-12 lg:grid-cols-12 mb-16">
-          <div className="lg:col-span-5 space-y-8">
+          {/* Brand Column */}
+          <div className="lg:col-span-4 space-y-8">
             <div className="space-y-2">
               <h3 className="text-2xl font-black text-black dark:text-white tracking-tight">
                 Gyana Prakash Khandual
@@ -79,84 +126,31 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="lg:col-span-2 lg:col-start-7">
-            <h4 className="text-[10px] font-bold uppercase tracking-[0.18em] text-black/35 dark:text-white/35 mb-5">
-              Navigate
-            </h4>
-            <ul className="space-y-3">
-              {["Experience", "Projects", "Skills", "Contact"].map((link) => (
-                <li key={link}>
-                  <a
-                    href={`https://gyanprakash.vercel.app/${link.toLowerCase()}`}
-                    target="_blank"
-                    className="group inline-flex items-center gap-1.5 text-sm text-black/55 dark:text-white/55 hover:text-black dark:hover:text-white transition-colors duration-150 font-medium"
-                  >
-                    {link}
-                    <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </a>
-                </li>
+          {/* Project Category Columns */}
+          <div className="lg:col-span-8 lg:col-start-5">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
+              {projectSections.map((section) => (
+                <div key={section.label}>
+                  <h4 className="text-[10px] font-bold uppercase tracking-[0.18em] text-black/35 dark:text-white/35 mb-5">
+                    {section.label}
+                  </h4>
+                  <ul className="space-y-3">
+                    {section.items.map((item) => (
+                      <li key={item.slug}>
+                        <a
+                          href={`https://gyanprakash.vercel.app/projects/${item.slug}`}
+                          target="_blank"
+                          className="group inline-flex items-center gap-1.5 text-sm text-black/55 dark:text-white/55 hover:text-black dark:hover:text-white transition-colors duration-150 font-medium"
+                        >
+                          {item.name}
+                          <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               ))}
-            </ul>
-          </div>
-
-          <div className="lg:col-span-2">
-            <h4 className="text-[10px] font-bold uppercase tracking-[0.18em] text-black/35 dark:text-white/35 mb-5">
-              Projects
-            </h4>
-            <ul className="space-y-3">
-              {["Caffetest", "Fetch", "Selenium Ext.", "Caffetest Ext."].map(
-                (p) => (
-                  <li key={p}>
-                    <a
-                      href="https://gyanprakash.vercel.app/projects"
-                      target="_blank"
-                      className="group inline-flex items-center gap-1.5 text-sm text-black/55 dark:text-white/55 hover:text-black dark:hover:text-white transition-colors duration-150 font-medium"
-                    >
-                      {p}
-                      <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </a>
-                  </li>
-                ),
-              )}
-            </ul>
-          </div>
-
-          <div className="lg:col-span-2">
-            <h4 className="text-[10px] font-bold uppercase tracking-[0.18em] text-black/35 dark:text-white/35 mb-5">
-              Connect
-            </h4>
-            <ul className="space-y-3">
-              {[
-                {
-                  name: "GitHub",
-                  url: "https://github.com/gyanaprakashkhandual",
-                },
-                {
-                  name: "LinkedIn",
-                  url: "https://www.linkedin.com/in/gyanaprakashkhandual/",
-                },
-                {
-                  name: "Email",
-                  url: "https://gyanprakash.vercel.app/contact",
-                },
-                {
-                  name: "Marketplace",
-                  url: "https://marketplace.visualstudio.com/manage/publishers/gyanaprakashkhandual",
-                },
-              ].map((l) => (
-                <li key={l.name}>
-                  <a
-                    href={l.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-black/55 dark:text-white/55 hover:text-black dark:hover:text-white transition-colors font-medium flex items-center gap-1.5 group"
-                  >
-                    {l.name}
-                    <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </a>
-                </li>
-              ))}
-            </ul>
+            </div>
           </div>
         </div>
 

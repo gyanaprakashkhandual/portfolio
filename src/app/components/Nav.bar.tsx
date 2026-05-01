@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Sun, Moon, Menu, X, ChevronDown } from "lucide-react";
 import { FaCoffee } from "react-icons/fa";
 import { useTheme } from "../context/Theme.context";
+import { BrandIcon } from "./utils/Icon";
 
 interface NavLink {
   label: string;
@@ -114,7 +115,7 @@ export default function Navbar() {
               className="flex items-center gap-2 shrink-0 group"
             >
               <span className="flex items-center justify-center w-8 h-8 text-black dark:text-blue-950 transition-colors">
-                <FaCoffee className="w-8 h-8" strokeWidth={2} />
+                <BrandIcon className="w-7 h-7"/>
               </span>
               <span className="text-base font-bold text-neutral-900 dark:text-white tracking-tight">
                 Gyan
