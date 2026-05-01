@@ -6,8 +6,9 @@ export default function ProjectsLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex h-[calc(100vh-56px)] bg-white dark:bg-gray-900 overflow-hidden">
-      <ProjectsSidebar />
+    <div className="flex overflow-hidden"
+      style={{ height: "calc(100vh - 56px)" }}>
+        <ProjectsSidebar />
       <main className="flex-1 overflow-y-auto">{children}</main>
     </div>
   );

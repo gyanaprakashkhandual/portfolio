@@ -249,22 +249,77 @@ export default function ProjectDetailPage() {
     );
 
   return (
-    <div className="p-6 lg:p-8 max-w-6xl mx-auto">
-      <motion.button
-        initial={{ opacity: 0, x: -8 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.3 }}
-        onClick={() => router.push("/projects")}
-        className="inline-flex items-center gap-2 text-sm text-gray-400 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors mb-6 group"
-      >
-        <ArrowLeft
-          className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform"
-          strokeWidth={1.8}
-        />
-        All Projects
-      </motion.button>
+    <div className="max-w-6xl mx-auto">
+      <div className="p-6 lg:p-8 pb-0">
+        <motion.button
+          initial={{ opacity: 0, x: -8 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.3 }}
+          onClick={() => router.push("/projects")}
+          className="inline-flex items-center gap-2 text-sm text-gray-400 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors mb-6 group"
+        >
+          <ArrowLeft
+            className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform"
+            strokeWidth={1.8}
+          />
+          All Projects
+        </motion.button>
 
-      {meta.images?.length > 0 && (
+        <div className="mb-8">
+          <h1 className="text-4xl font-bold text-black dark:text-white mb-3 leading-tight tracking-tight">
+            {meta.title}
+          </h1>
+          <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-6 leading-relaxed">
+            {meta.description}
+          </p>
+          <div className="flex flex-wrap items-start gap-6 pt-6 border-t border-zinc-200 dark:border-zinc-800">
+            <div>
+              <p className="text-xs uppercase tracking-widest text-zinc-400 mb-2">Type</p>
+              <span className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
+                {meta.type}
+              </span>
+            </div>
+            {meta.tags && meta.tags.length > 0 && (
+              <div>
+                <p className="text-xs uppercase tracking-widest text-zinc-400 mb-2">Tags</p>
+                <div className="flex flex-wrap gap-2">
+                  {meta.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="inline-flex items-center text-xs px-2 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+            {meta.technologies && meta.technologies.length > 0 && (
+              <div>
+                <p className="text-xs uppercase tracking-widest text-zinc-400 mb-2">Tech Stack</p>
+                <div className="flex flex-wrap gap-2">
+                  {meta.technologies.slice(0, 5).map((tech) => (
+                    <span
+                      key={tech}
+                      className="inline-flex items-center text-xs px-2 py-1 rounded-lg bg-blue-50 dark:bg-blue-950/30 text-blue-700 dark:text-blue-300"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                  {meta.technologies.length > 5 && (
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">
+                      +{meta.technologies.length - 5} more
+                    </span>
+                  )}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+
+      <div className="p-6 lg:p-8 pt-0">
+        {meta.images?.length > 0 && (
         <motion.div
           initial={{ opacity: 0, y: -12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -373,6 +428,7 @@ export default function ProjectDetailPage() {
           <MessageParser content={body} />
         </div>
       </motion.div>
+      </div>
     </div>
   );
 }
