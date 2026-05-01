@@ -64,8 +64,7 @@ export default function Sidebar() {
   }
 
   return (
-    <aside className="w-72 shrink-0 flex flex-col h-full bg-white dark:bg-gray-950 border-r border-gray-200 dark:border-gray-800">
-      <div className="px-4 pt-5 pb-4 border-b border-gray-200 dark:border-gray-800">
+    <aside className="w-72 shrink-0 flex flex-col h-[calc(100vh-56px)] bg-white dark:bg-gray-950 border-r border-gray-200 dark:border-gray-800 overflow-hidden">  <div className="px-4 pt-5 pb-4 border-b border-gray-200 dark:border-gray-800">
         <div className="flex items-center gap-2 mb-3">
           <BookOpen
             className="w-3.5 h-3.5 text-gray-400 dark:text-gray-500"

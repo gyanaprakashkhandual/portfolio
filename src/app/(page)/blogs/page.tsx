@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import Link from "next/link";
@@ -18,7 +19,7 @@ const tagDotStyles: Record<string, string> = {
 
 export default function BlogsPage() {
   return (
-    <div className="min-h-screen bg-white dark:bg-zinc-950">
+    <div className="h-[calc(100vh-56px)] bg-white dark:bg-zinc-950">
       <div className="max-w-4xl mx-auto px-5 pt-20 pb-28">
         <motion.div
           initial={{ opacity: 0, y: 32 }}
@@ -107,7 +108,7 @@ export default function BlogsPage() {
                         alt={blog.title}
                         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                      <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent" />
                     </div>
                   )}
 
