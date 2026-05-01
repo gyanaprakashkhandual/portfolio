@@ -14,7 +14,7 @@ import {
   Check,
   BookOpen,
 } from "lucide-react";
-import { blogs, Blog } from "../data/Blogs";
+import { blogs, Blog } from "../script/Blogs";
 
 export default function Sidebar() {
   const pathname = usePathname();

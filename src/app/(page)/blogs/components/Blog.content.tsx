@@ -1,7 +1,8 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
 import { useEffect, useState } from "react";
-import { Loader2, AlertTriangle } from "lucide-react";
+import { AlertTriangle } from "lucide-react";
 import { MessageParser } from "@/app/message-parser/core/Parser.core";
 
 interface Props {

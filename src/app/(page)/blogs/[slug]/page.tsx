@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getBlogBySlug, blogs } from "../data/Blogs";
+import { blogs, getBlogBySlug } from "../script/Blogs";
 import BlogContent from "../components/Blog.content";
 
 interface Props {

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Clock, Calendar, User, BookOpen } from "lucide-react";
-import { blogs } from "./data/Blogs";
+import { blogs } from "./script/Blogs";
 
 const tagStyles: Record<string, string> = {
   blue: "bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-950/50 dark:text-blue-300 dark:border-blue-800",
@@ -93,13 +93,25 @@ export default function BlogsPage() {
               }}
             >
               <Link href={`/blogs/${blog.slug}`} className="group block">
-                <div className="relative border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-200 bg-white dark:bg-zinc-950 overflow-hidden">
+                <div className="relative border border-zinc-200 dark:border-zinc-800 rounded-2xl overflow-hidden hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-200 bg-white dark:bg-zinc-950">
                   <motion.div
                     className="absolute inset-0 bg-zinc-50 dark:bg-zinc-900 opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-2xl"
                     aria-hidden
                   />
 
-                  <div className="relative flex items-start justify-between gap-6">
+                  {/* Cover Image */}
+                  {blog.image && (
+                    <div className="relative w-full h-44 overflow-hidden">
+                      <img
+                        src={blog.image}
+                        alt={blog.title}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                    </div>
+                  )}
+
+                  <div className="relative flex items-start justify-between gap-6 p-6">
                     <div className="shrink-0 w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800/80 flex items-center justify-center mt-0.5">
                       <span className="text-[11px] font-semibold text-zinc-400 dark:text-zinc-500 tabular-nums">
                         {String(i + 1).padStart(2, "0")}

@@ -1,5 +1,3 @@
-"use client";
-
 export interface Blog {
     slug: string;
     title: string;
@@ -25,7 +23,7 @@ export const blogs: Blog[] = [
         date: "Jan 15, 2024",
         readTime: "8 min read",
         image: "/images/showmarkdown-cover.png",
-        mdPath: "/how-to-use-showmarkdown-package.md",
+        mdPath: "/blogs/products/npm-packages/render.md.npm.md",
     },
     {
         slug: "how-to-use-sendenv",
@@ -38,7 +36,7 @@ export const blogs: Blog[] = [
         date: "Feb 10, 2024",
         readTime: "12 min read",
         image: "/images/sendenv-cover.png",
-        mdPath: "/how-to-use-sendenv.md",
+        mdPath: "/blogs/products/npm-packages/encrypt.env.npm.md",
     },
 ];
 
