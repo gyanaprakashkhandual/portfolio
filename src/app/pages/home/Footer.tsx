@@ -29,13 +29,13 @@ const socials = [
     name: "Visual Studio Code Marketplace",
     url: "https://marketplace.visualstudio.com/manage/publishers/gyanaprakashkhandual",
     color: "hover:text-blue-600 hover:border-blue-600/30 hover:bg-blue-600/8",
-    icon: <Store/>
+    icon: <Store />,
   },
   {
     name: "NPM Profile",
     url: "https://www.npmjs.com/package/sendenv",
     color: "hover:text-red-600 hover:border-red-600/30 hover:bg-red-600/8",
-    icon: <FaNpm className="text-red-800"/>
+    icon: <FaNpm className="text-red-800" />,
   },
 ];
 
@@ -51,12 +51,12 @@ export default function Footer() {
                 Gyana Prakash Khandual
               </h3>
               <p className="text-sm text-black/45 dark:text-white/45 font-medium">
-                Full-Stack Developer · QA Engineer · Ethical Hacker
+                Software Engineer
               </p>
             </div>
 
             <p className="text-sm text-black/45 dark:text-white/45 leading-relaxed max-w-sm">
-              Building secure, scalable, and intelligent web applications.
+              Building secure, scalable, and intelligent applications.
               Committed to quality at every layer of the stack.
             </p>
 
@@ -84,10 +84,11 @@ export default function Footer() {
               Navigate
             </h4>
             <ul className="space-y-3">
-              {["About", "Projects", "Skills", "Contact"].map((link) => (
+              {["Experience", "Projects", "Skills", "Contact"].map((link) => (
                 <li key={link}>
                   <a
                     href={`https://gyanprakash.vercel.app/${link.toLowerCase()}`}
+                    target="_blank"
                     className="group inline-flex items-center gap-1.5 text-sm text-black/55 dark:text-white/55 hover:text-black dark:hover:text-white transition-colors duration-150 font-medium"
                   >
                     {link}
@@ -108,6 +109,7 @@ export default function Footer() {
                   <li key={p}>
                     <a
                       href="https://gyanprakash.vercel.app/projects"
+                      target="_blank"
                       className="group inline-flex items-center gap-1.5 text-sm text-black/55 dark:text-white/55 hover:text-black dark:hover:text-white transition-colors duration-150 font-medium"
                     >
                       {p}

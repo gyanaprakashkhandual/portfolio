@@ -9,6 +9,7 @@
     "typescript-config/consistent-casing": "off",
     "compat-api/css": "off",
     "axe/structure": "off",
-    "axe/aria": "off"
+    "axe/aria": "off",
+    "disown-opener": "off"
   }
 }
