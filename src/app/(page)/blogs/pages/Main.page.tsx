@@ -27,14 +27,11 @@ export default function BlogsPage() {
           className="mb-16"
         >
           <h1 className="text-5xl font-semibold text-black dark:text-white leading-[1.1] mb-4 tracking-tight">
-            Package{" "}
-            <span className="italic font-light text-zinc-400 dark:text-zinc-500">
-              Guides
-            </span>
+            Read, Learn & Build
           </h1>
-          <p className="text-zinc-500 dark:text-zinc-400 text-lg font-light max-w-lg leading-relaxed">
-            In-depth guides for open-source packages. Drop-in documentation with
-            working examples.
+          <p className="text-zinc-500 dark:text-zinc-400 text-lg max-w-lg">
+            Practical guides on tools, libraries, CLIs, and software — written
+            to help you ship faster and understand deeper.
           </p>
         </motion.div>
 

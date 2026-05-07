@@ -17,7 +17,7 @@ export const BrandIcon = ({
       d="M15 52C15 28.8 30.8 13 50 13C69.2 13 85 28.8 85 52"
       stroke="#000000"
       strokeWidth="10"
-      stroke-linecap="round"
+      strokeLinecap="round"
       fill="none"
     />
     <rect x="8" y="50" width="18" height="28" rx="7" fill="#000000" />

@@ -24,6 +24,7 @@ import {
   Menu,
   SidebarClose,
 } from "lucide-react";
+import { Tooltip } from "@/ui/components/Tooltip.ui";
 
 interface Skill {
   skillId: string;
@@ -216,6 +217,7 @@ function Sidebar({
             </motion.span>
           )}
         </AnimatePresence>
+        <Tooltip content={collapsed ? "Expand sidebar" : "Collapse sidebar"} placement="right" showArrow>
         <button
           onClick={onToggle}
           className="ml-auto p-1.5 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors"
@@ -226,6 +228,7 @@ function Sidebar({
             <SidebarClose className="w-3.5 h-3.5" strokeWidth={2} />
           )}
         </button>
+        </Tooltip>
       </div>
 
       {/* Nav items */}
