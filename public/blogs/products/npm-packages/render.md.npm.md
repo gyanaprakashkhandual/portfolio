@@ -7,7 +7,7 @@ tagColor: emerald
 author: Gyana Prakash Khandual
 date: 2024-01-15
 readTime: 8 min read
-image: /images/showmarkdown-cover.png
+image: /images/blogs/products/npm-packages/show.md.blog.npm.png
 npm: https://www.npmjs.com/package/showmarkdown
 github: https://github.com/gyanaprakashkhandual/markdown
 ---
@@ -15,6 +15,8 @@ github: https://github.com/gyanaprakashkhandual/markdown
 # How to Use ShowMarkdown
 
 A **React library** that turns raw Markdown into beautiful UI instantly. Drop it into any React or Next.js project — no parsing logic needed.
+
+![ShowMarkdown](/images/blogs/products/npm-packages/show.md.blog.npm.png)
 
 ## Installation
 

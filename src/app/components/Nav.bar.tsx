@@ -8,6 +8,7 @@ import { Sun, Moon, Menu, X, ChevronDown } from "lucide-react";
 import { FaCoffee } from "react-icons/fa";
 import { useTheme } from "../context/Theme.context";
 import { BrandIcon } from "./utils/Icon";
+import { Tooltip } from "@/ui/components/Tooltip.ui";
 
 interface NavLink {
   label: string;
@@ -160,13 +161,13 @@ export default function Navbar() {
 
             <div className="flex items-center gap-1">
               {mounted && (
+                <Tooltip content="Change Theme" showArrow>
                 <div className="relative">
                   <motion.button
                     whileHover={{ scale: 1.08 }}
                     whileTap={{ scale: 0.92 }}
                     onClick={() => setThemeOpen(!themeOpen)}
                     aria-label="Toggle theme"
-                    title={`Current theme: ${theme}`}
                     className="p-2 rounded-lg text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800/60 transition-colors"
                   >
                     <AnimatePresence mode="wait" initial={false}>
@@ -228,6 +229,7 @@ export default function Navbar() {
                     )}
                   </AnimatePresence>
                 </div>
+                </Tooltip>
               )}
 
               <motion.button

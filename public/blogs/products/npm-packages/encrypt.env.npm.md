@@ -7,7 +7,7 @@ tagColor: blue
 author: Gyana Prakash Khandual
 date: 2024-02-10
 readTime: 12 min read
-image: /images/sendenv-cover.png
+image: /images/blogs/products/npm-packages/sendenv.blog.npm.png
 npm: https://www.npmjs.com/package/sendenv
 github: https://github.com/gyanaprakashkhandual/sendenv
 ---
@@ -15,6 +15,8 @@ github: https://github.com/gyanaprakashkhandual/sendenv
 # How to Use Send ENV
 
 Encrypt your `.env` file and share it safely through git. Teammates decrypt with a shared passphrase. No third-party service.
+
+![sendenv](/images/blogs/products/npm-packages/sendenv.blog.npm.png)
 
 ## The Problem
 

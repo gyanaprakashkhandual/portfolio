@@ -22,7 +22,7 @@ export const blogs: Blog[] = [
         author: "Gyana Prakash Khandual",
         date: "Jan 15, 2024",
         readTime: "8 min read",
-        image: "/images/showmarkdown-cover.png",
+        image: "/images/blogs/products/npm-packages/show.md.blog.npm.png",
         mdPath: "/blogs/products/npm-packages/render.md.npm.md",
     },
     {
@@ -35,7 +35,7 @@ export const blogs: Blog[] = [
         author: "Gyana Prakash Khandual",
         date: "Feb 10, 2024",
         readTime: "12 min read",
-        image: "/images/sendenv-cover.png",
+        image: "/images/blogs/products/npm-packages/sendenv.blog.npm.png",
         mdPath: "/blogs/products/npm-packages/encrypt.env.npm.md",
     },
 ];
