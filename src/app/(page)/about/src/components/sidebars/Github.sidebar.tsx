@@ -26,7 +26,7 @@ const githubItems: SidebarItem[] = [
     id: "repositories",
     label: "Repositories",
     icon: <Github size={15} />,
-    href: "/github/repositories",
+    href: "/about/github/repositories",
     dividerBefore: true,
   },
   {

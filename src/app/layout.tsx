@@ -4,6 +4,7 @@ import Navbar from "@/app/components/Nav.bar";
 import { ThemeProvider } from "@/app/context/Theme.context";
 import StoreProvider from "./context/Store.context";
 import { SidebarProvider } from "@/ui/context/Sidebar.context";
+import { ActionMenuProvider } from "@/ui/context/Action.menu.context";
 
 export const metadata: Metadata = {
   title: "Home - Gyan's",
@@ -40,12 +41,14 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <SidebarProvider>
-          <ThemeProvider>
-            <Navbar />
-            <StoreProvider>{children}</StoreProvider>
-          </ThemeProvider>
-        </SidebarProvider>
+        <ActionMenuProvider>
+          <SidebarProvider>
+            <ThemeProvider>
+              <Navbar />
+              <StoreProvider>{children}</StoreProvider>
+            </ThemeProvider>
+          </SidebarProvider>
+        </ActionMenuProvider>
       </body>
     </html>
   );
