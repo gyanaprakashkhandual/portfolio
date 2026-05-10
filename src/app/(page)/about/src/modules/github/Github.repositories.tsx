@@ -512,7 +512,7 @@ export default function GithubRepositories() {
   }
 
   return (
-    <div className="flex flex-col min-h-0 flex-1">
+    <div className="flex flex-col min-h-0 flex-1 h-[calc(100vh-56px)]">
       <GithubNavbar
         search={search}
         onSearchChange={setSearch}

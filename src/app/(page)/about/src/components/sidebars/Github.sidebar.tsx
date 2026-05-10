@@ -33,7 +33,7 @@ const githubItems: SidebarItem[] = [
     id: "favorites",
     label: "Favorites",
     icon: <Star size={15} />,
-    href: "/github/favorites",
+    href: "/about/github/favorites",
   },
   {
     id: "open-source",
