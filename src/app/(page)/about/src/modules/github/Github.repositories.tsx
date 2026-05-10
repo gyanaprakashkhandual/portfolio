@@ -22,12 +22,12 @@ import {
 import { ActionMenu } from "@/ui/components/Action.menu.ui";
 import { Tooltip } from "@/ui/components/Tooltip.ui";
 import type { ActionItem } from "@/ui/context/Action.menu.context";
-import GithubNavbar from "../../components/navbars/Github.navbar";
+import GithubNavbar from "./repositories/components/Repositories.navbar";
 import type {
   SortOption,
   FilterType,
   LanguageFilter,
-} from "../../components/navbars/Github.navbar";
+} from "./repositories/components/Repositories.navbar";
 
 const GITHUB_USERNAME = "gyanaprakashkhandual";
 const PER_PAGE = 12;

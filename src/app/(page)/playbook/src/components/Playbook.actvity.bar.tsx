@@ -10,7 +10,6 @@ import {
   Cpu,
   GraduationCap,
   Heart,
-  Watch,
   Eye,
 } from "lucide-react";
 
