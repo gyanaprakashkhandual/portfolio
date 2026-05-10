@@ -6,7 +6,7 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <div className="flex">
+        <div className="flex w-screen">
             <SkillSidebar/>
             {children}
         </div>

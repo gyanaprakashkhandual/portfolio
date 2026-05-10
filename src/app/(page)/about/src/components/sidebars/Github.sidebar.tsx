@@ -83,28 +83,26 @@ function GithubHeader() {
 
 function GithubFooter() {
   return (
-    <div className="flex items-center gap-2.5 min-w-0">
-      <div className="relative w-7 h-7 rounded-full overflow-hidden ring-1 ring-gray-200 dark:ring-gray-700 shrink-0">
-        <Image
-          src="https://res.cloudinary.com/dvytvjplt/image/upload/v1765866608/profile_pricture_oemv94.jpg"
-          alt="Profile"
-          fill
-          className="object-cover"
-        />
+    <div className="flex flex-col gap-2.5 select-none">
+      <div className="flex items-center gap-2.5">
+        <div className="relative w-8 h-8 rounded-full overflow-hidden shrink-0 transition-all duration-150">
+          <Image
+            src="https://res.cloudinary.com/dvytvjplt/image/upload/v1765866608/profile_pricture_oemv94.jpg"
+            alt="Profile"
+            fill
+            className="object-cover"
+          />
+        </div>
+        <div className="flex flex-col min-w-0 flex-1">
+          <span className="text-xs font-bold text-gray-900 dark:text-white leading-none">
+            Gyana Prakash Khandual
+          </span>
+          <span className="text-[10px] text-gray-500 dark:text-gray-500 mt-1 font-semibold">
+            Software Engineer
+          </span>
+        </div>
       </div>
-      <div className="flex flex-col min-w-0">
-        <span className="text-xs font-semibold text-gray-900 dark:text-white truncate leading-tight">
-          @gyanaprakashkhandual
-        </span>
-        <a
-          href="https://github.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[10px] text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors truncate leading-tight"
-        >
-          github.com/gyanaprakashkhandual
-        </a>
-      </div>
+
     </div>
   );
 }

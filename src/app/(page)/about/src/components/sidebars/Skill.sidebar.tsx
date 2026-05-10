@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { Sidebar } from "@/ui/components/Sidebar.ui";
 import type { SidebarItem } from "@/ui/context/Sidebar.context";
+import Image from "next/image";
 
 const CATEGORIES = [
   { id: "all", label: "All", slug: "all", icon: <Layers size={15} /> },
@@ -93,59 +94,26 @@ function SidebarHeader() {
 
 function SidebarFooter() {
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-2.5 select-none">
       <div className="flex items-center gap-2.5">
-        <div className="w-7 h-7 rounded-full bg-gray-100 flex items-center justify-center shrink-0">
-          <User size={13} className="text-gray-500" />
+        <div className="relative w-8 h-8 rounded-full overflow-hidden shrink-0 transition-all duration-150">
+          <Image
+            src="https://res.cloudinary.com/dvytvjplt/image/upload/v1765866608/profile_pricture_oemv94.jpg"
+            alt="Profile"
+            fill
+            className="object-cover"
+          />
         </div>
         <div className="flex flex-col min-w-0 flex-1">
-          <span className="text-xs font-semibold text-gray-800 truncate leading-tight">
-            Gyana Prakash
+          <span className="text-xs font-bold text-gray-900 dark:text-white leading-none">
+            Gyana Prakash Khandual
           </span>
-          <span className="text-[10px] text-gray-400 truncate leading-tight">
-            Full Stack Developer
+          <span className="text-[10px] text-gray-500 dark:text-gray-500 mt-1 font-semibold">
+            Software Engineer
           </span>
         </div>
       </div>
-      <div className="flex items-center gap-1.5">
-        <a
-          href="mailto:gyanaprakashkhandual@gmail.com"
-          className="flex items-center justify-center w-7 h-7 rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors"
-          title="Email"
-        >
-          <Mail size={13} />
-        </a>
-        <a
-          href="https://github.com/gyanaprakashkhandual"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center w-7 h-7 rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors"
-          title="GitHub"
-        >
-          <Github size={13} />
-        </a>
-        <a
-          href="https://linkedin.com/in/gyanaprakashkhandual"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center w-7 h-7 rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors"
-          title="LinkedIn"
-        >
-          <Linkedin size={13} />
-        </a>
-        <a
-          href="https://twitter.com/gyanaprakash"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center w-7 h-7 rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors"
-          title="Twitter"
-        >
-          <Twitter size={13} />
-        </a>
-      </div>
-      <p className="text-[10px] text-gray-300 leading-tight">
-        © {new Date().getFullYear()} Gyana Prakash Khandual
-      </p>
+
     </div>
   );
 }
