@@ -11,11 +11,23 @@ import {
   GraduationCap,
   BadgeCheck,
   Trophy,
+  Music2,
+  Film,
+  PenLine,
+  Shirt,
+  Compass,
+  Dumbbell,
+  BookOpen,
+  Heart,
+  Camera,
+  Mic2,
 } from "lucide-react";
 import Image from "next/image";
+import { Tooltip } from "@/ui/components/Tooltip.ui";
 
 const navItems = [
   { icon: User, label: "About Me", href: "/about" },
+  { icon: Heart, label: "Bio", href: "/bio" },
   { icon: Share2, label: "Socials", href: "/socials" },
   { icon: Github, label: "GitHub", href: "/github" },
   { icon: FolderKanban, label: "Projects", href: "/projects" },
@@ -23,6 +35,15 @@ const navItems = [
   { icon: GraduationCap, label: "Education", href: "/education" },
   { icon: BadgeCheck, label: "Certifications", href: "/certifications" },
   { icon: Trophy, label: "Achievements", href: "/achievements" },
+  { icon: Music2, label: "Music", href: "/music" },
+  { icon: Film, label: "Acting", href: "/acting" },
+  { icon: PenLine, label: "Writing", href: "/writing" },
+  { icon: Shirt, label: "Modeling", href: "/modeling" },
+  { icon: Compass, label: "Adventures", href: "/adventures" },
+  { icon: Dumbbell, label: "Athletics", href: "/athletics" },
+  { icon: BookOpen, label: "Blog", href: "/blog" },
+  { icon: Camera, label: "Gallery", href: "/gallery" },
+  { icon: Mic2, label: "Podcasts", href: "/podcasts" },
 ];
 
 export default function ActivityBar() {
@@ -30,87 +51,68 @@ export default function ActivityBar() {
   const pathname = usePathname();
 
   return (
-    <aside className="h-[calc(100vh-56px)] sticky top-14 w-16 flex flex-col items-center py-4 gap-0 bg-white dark:bg-zinc-900 border-r border-zinc-200 dark:border-zinc-800 z-40 select-none shrink-0">
-      <div className="flex flex-col items-center w-full px-2 mb-3">
-        <div className="relative w-9 h-9 rounded-full overflow-hidden ring-2 ring-zinc-200 dark:ring-zinc-700 shrink-0">
-          <Image
-            src="https://res.cloudinary.com/dvytvjplt/image/upload/v1765866608/profile_pricture_oemv94.jpg"
-            alt="Profile"
-            fill
-            className="object-cover"
-            onError={(e) => {
-              const target = e.currentTarget as HTMLImageElement;
-              target.style.display = "none";
-              const parent = target.parentElement;
-              if (parent) {
-                parent.classList.add(
-                  "bg-zinc-100",
-                  "dark:bg-zinc-800",
-                  "flex",
-                  "items-center",
-                  "justify-center",
-                );
-                parent.innerHTML = `<span class="text-xs font-semibold text-zinc-500 dark:text-zinc-400">ME</span>`;
-              }
-            }}
-          />
-        </div>
+    <aside className="h-[calc(100vh-56px)] sticky top-14 w-14 flex flex-col items-center py-3 bg-white dark:bg-zinc-900 border-r border-zinc-100 dark:border-zinc-800 z-40 select-none shrink-0 overflow-hidden">
+      <div className="flex flex-col items-center w-full px-2.5 mb-2.5 shrink-0">
+        <Tooltip>
+          <div className="relative w-8 h-8 rounded-full overflow-hidden ring-1 ring-zinc-200 dark:ring-zinc-700 cursor-pointer shrink-0 transition-all duration-150 hover:ring-2 hover:ring-zinc-400 dark:hover:ring-zinc-500">
+            <Image
+              src="https://res.cloudinary.com/dvytvjplt/image/upload/v1765866608/profile_pricture_oemv94.jpg"
+              alt="Profile"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </Tooltip>
       </div>
 
-      <div className="w-8 h-px bg-zinc-200 dark:bg-zinc-700 mb-3" />
+      <div className="w-7 h-px bg-zinc-100 dark:bg-zinc-800 mb-2.5 shrink-0" />
 
-      <nav className="flex flex-col items-center gap-1 w-full px-1.5 flex-1 overflow-y-auto scrollbar-none">
+      <nav className="flex flex-col items-center gap-0.5 w-full px-1.5 flex-1 overflow-y-auto overflow-x-hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {navItems.map(({ icon: Icon, label, href }, index) => {
           const isActive = pathname === href;
 
           return (
-            <motion.button
+            <motion.div
               key={href}
-              initial={{ opacity: 0, x: -8 }}
+              initial={{ opacity: 0, x: -6 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{
-                delay: index * 0.04,
-                duration: 0.25,
+                delay: index * 0.03,
+                duration: 0.2,
                 ease: "easeOut",
               }}
-              onClick={() => router.push(href)}
-              title={label}
-              aria-label={label}
-              className={`
-                group relative w-full flex items-center justify-center rounded-lg p-2.5 transition-all duration-150 cursor-pointer
-                ${
-                  isActive
-                    ? "bg-black text-white dark:bg-white dark:text-black"
-                    : "text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-black dark:hover:text-white"
-                }
-              `}
+              className="w-full"
             >
-              <Icon
-                size={18}
-                strokeWidth={isActive ? 2.2 : 1.8}
-                className="shrink-0"
-              />
-
-              <span
-                className="
-                  pointer-events-none absolute left-full ml-2.5 whitespace-nowrap
-                  rounded-md bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900
-                  text-xs font-medium px-2.5 py-1.5 shadow-md
-                  opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0
-                  transition-all duration-150 z-50
-                "
+                <Tooltip content={label} position="right" showArrow>
+              <button
+                onClick={() => router.push(href)}
+                aria-label={label}
+                className={[
+                  "relative w-full flex items-center justify-center rounded-md p-2 transition-all duration-100 cursor-pointer outline-none",
+                  isActive
+                    ? "bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900"
+                    : "text-zinc-400 dark:text-zinc-500 hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:text-zinc-800 dark:hover:text-zinc-200",
+                ].join(" ")}
               >
-                {label}
-              </span>
-
-              {isActive && (
-                <motion.span
-                  layoutId="activeIndicator"
-                  className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-5 rounded-r-full bg-black dark:bg-white"
-                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                {isActive && (
+                  <motion.span
+                    layoutId="activeIndicator"
+                    className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-4 rounded-r-full bg-zinc-900 dark:bg-zinc-100"
+                    transition={{
+                      type: "spring",
+                      stiffness: 500,
+                      damping: 35,
+                    }}
+                  />
+                )}
+                <Icon
+                  size={16}
+                  strokeWidth={isActive ? 2.2 : 1.7}
+                  className="shrink-0"
                 />
-              )}
-            </motion.button>
+              </button>
+              </Tooltip>
+            </motion.div>
           );
         })}
       </nav>
