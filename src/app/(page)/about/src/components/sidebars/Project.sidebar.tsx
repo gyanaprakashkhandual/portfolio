@@ -29,7 +29,7 @@ import { Sidebar } from "@/ui/components/Sidebar.ui";
 import { ActionMenu } from "@/ui/components/Action.menu.ui";
 import type { SidebarItem } from "@/ui/context/Sidebar.context";
 import type { ActionItem } from "@/ui/context/Action.menu.context";
-import { projects } from "@/app/pages/home/Data";
+import { projects } from "../../modules/projects/script";
 
 function buildActionItems(
   slug: string,
@@ -290,54 +290,6 @@ function SidebarFooter() {
           </span>
         </div>
       </div>
-      <div className="flex items-center gap-1.5">
-        <a
-          href="mailto:gyanaprakashkhandual@gmail.com"
-          className="flex items-center justify-center w-7 h-7 rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors"
-          title="Email"
-        >
-          <Mail size={13} />
-        </a>
-        <a
-          href="https://github.com/gyanaprakashkhandual"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center w-7 h-7 rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors"
-          title="GitHub"
-        >
-          <Github size={13} />
-        </a>
-        <a
-          href="https://linkedin.com/in/gyanaprakashkhandual"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center w-7 h-7 rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors"
-          title="LinkedIn"
-        >
-          <Linkedin size={13} />
-        </a>
-        <a
-          href="https://twitter.com/gyanaprakash"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center w-7 h-7 rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors"
-          title="Twitter"
-        >
-          <Twitter size={13} />
-        </a>
-        <a
-          href="https://github.com/gyanaprakashkhandual"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center w-7 h-7 rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors"
-          title="Source Code"
-        >
-          <FileCode2 size={13} />
-        </a>
-      </div>
-      <p className="text-[10px] text-gray-300 leading-tight">
-        © {new Date().getFullYear()} Gyana Prakash Khandual
-      </p>
     </div>
   );
 }
