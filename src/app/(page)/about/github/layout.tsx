@@ -6,7 +6,7 @@ export default function RootLayout ({
     children: React.ReactNode
 }) {
     return (
-        <div className="">
+        <div className="flex">
             <GithubSidebar/>
             {children}
         </div>

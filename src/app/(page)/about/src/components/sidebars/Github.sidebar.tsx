@@ -94,7 +94,7 @@ function GithubFooter() {
       </div>
       <div className="flex flex-col min-w-0">
         <span className="text-xs font-semibold text-gray-900 dark:text-white truncate leading-tight">
-          @username
+          @gyanaprakashkhandual
         </span>
         <a
           href="https://github.com"
@@ -102,7 +102,7 @@ function GithubFooter() {
           rel="noopener noreferrer"
           className="text-[10px] text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors truncate leading-tight"
         >
-          github.com/username
+          github.com/gyanaprakashkhandual
         </a>
       </div>
     </div>
@@ -125,7 +125,7 @@ export default function GithubSidebar() {
       size="md"
       variant="default"
       position="left"
-      sticky
+      sticky={false}
       showSearch
       showToggle
       showHamburger
@@ -134,7 +134,7 @@ export default function GithubSidebar() {
       defaultMode="expanded"
       persistToStorage
       enableKeyboardShortcut
-      className="h-[calc(100vh-56px)] sticky top-14"
+      className="h-[calc(100vh-56px)] sticky"
     />
   );
 }
