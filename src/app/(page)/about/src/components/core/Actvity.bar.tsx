@@ -12,6 +12,7 @@ import {
   BadgeCheck,
   Trophy,
   Camera,
+  Workflow,
 } from "lucide-react";
 import Image from "next/image";
 import { Tooltip } from "@/ui/components/Tooltip.ui";
@@ -20,6 +21,7 @@ const navItems = [
   { icon: User, label: "About Me", href: "/about" },
   { icon: Share2, label: "Socials", href: "/socials" },
   { icon: Github, label: "GitHub", href: "/about/github" },
+  { icon: Workflow, label: "Experience", href: "/about/experience" },
   { icon: FolderKanban, label: "Projects", href: "/about/projects" },
   { icon: Cpu, label: "Skills", href: "/about/skills" },
   { icon: GraduationCap, label: "Education", href: "/about/education" },
