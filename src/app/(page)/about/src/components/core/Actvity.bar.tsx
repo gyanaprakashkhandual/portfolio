@@ -21,7 +21,7 @@ const navItems = [
   { icon: Share2, label: "Socials", href: "/socials" },
   { icon: Github, label: "GitHub", href: "/about/github" },
   { icon: FolderKanban, label: "Projects", href: "/about/projects" },
-  { icon: Cpu, label: "Skills", href: "/skills" },
+  { icon: Cpu, label: "Skills", href: "/about/skills" },
   { icon: GraduationCap, label: "Education", href: "/education" },
   { icon: BadgeCheck, label: "Certifications", href: "/certifications" },
   { icon: Trophy, label: "Achievements", href: "/achievements" },
