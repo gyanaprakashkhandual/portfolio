@@ -25,7 +25,7 @@ const navItems = [
   { icon: FolderKanban, label: "Projects", href: "/about/projects" },
   { icon: Cpu, label: "Skills", href: "/about/skills" },
   { icon: GraduationCap, label: "Education", href: "/about/education" },
-  { icon: BadgeCheck, label: "Certifications", href: "/certifications" },
+  { icon: BadgeCheck, label: "Certifications", href: "/about/certifications" },
   { icon: Trophy, label: "Achievements", href: "/achievements" },
   { icon: Camera, label: "Gallery", href: "/gallery" },
 ];
