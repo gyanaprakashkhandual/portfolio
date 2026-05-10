@@ -13,6 +13,7 @@ import {
   Trophy,
   Camera,
   Workflow,
+  Briefcase,
 } from "lucide-react";
 import Image from "next/image";
 import { Tooltip } from "@/ui/components/Tooltip.ui";
@@ -26,8 +27,9 @@ const navItems = [
   { icon: Cpu, label: "Skills", href: "/about/skills" },
   { icon: GraduationCap, label: "Education", href: "/about/education" },
   { icon: BadgeCheck, label: "Certifications", href: "/about/certifications" },
-  { icon: Trophy, label: "Achievements", href: "/achievements" },
-  { icon: Camera, label: "Gallery", href: "/gallery" },
+  { icon: Trophy, label: "Achievements", href: "/about/achievements" },
+  { icon: Briefcase, label: "Open Source", href: "/about/open-source" },
+  { icon: Camera, label: "Gallery", href: "/about/gallery" },
 ];
 
 export default function ActivityBar() {
