@@ -3,10 +3,12 @@ import "./globals.css";
 import Navbar from "@/app/components/Nav.bar";
 import { ThemeProvider } from "@/app/context/Theme.context";
 import StoreProvider from "./context/Store.context";
+import { SidebarProvider } from "@/ui/context/Sidebar.context";
 
 export const metadata: Metadata = {
   title: "Home - Gyan's",
-  description: "This is the Home page of my portfolio website. Explore my projects, blogs, and skills. Learn about my experience and get in touch.",
+  description:
+    "This is the Home page of my portfolio website. Explore my projects, blogs, and skills. Learn about my experience and get in touch.",
   icons: {
     icon: "/icons/favicon.svg",
     apple: "/apple-touch-icon.png",
@@ -38,10 +40,12 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <ThemeProvider>
-          <Navbar />
-          <StoreProvider>{children}</StoreProvider>
-        </ThemeProvider>
+        <SidebarProvider>
+          <ThemeProvider>
+            <Navbar />
+            <StoreProvider>{children}</StoreProvider>
+          </ThemeProvider>
+        </SidebarProvider>
       </body>
     </html>
   );

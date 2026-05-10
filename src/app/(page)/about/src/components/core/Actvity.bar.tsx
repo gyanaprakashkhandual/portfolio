@@ -19,7 +19,7 @@ import { Tooltip } from "@/ui/components/Tooltip.ui";
 const navItems = [
   { icon: User, label: "About Me", href: "/about" },
   { icon: Share2, label: "Socials", href: "/socials" },
-  { icon: Github, label: "GitHub", href: "/github" },
+  { icon: Github, label: "GitHub", href: "/about/github" },
   { icon: FolderKanban, label: "Projects", href: "/projects" },
   { icon: Cpu, label: "Skills", href: "/skills" },
   { icon: GraduationCap, label: "Education", href: "/education" },
