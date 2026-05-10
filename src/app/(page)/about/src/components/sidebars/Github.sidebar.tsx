@@ -39,7 +39,7 @@ const githubItems: SidebarItem[] = [
     id: "open-source",
     label: "Open Source",
     icon: <Globe size={15} />,
-    href: "/github/open-source",
+    href: "/about/github/open-source",
   },
   {
     id: "free-to-use",
