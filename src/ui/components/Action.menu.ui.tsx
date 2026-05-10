@@ -204,16 +204,18 @@ function MenuPanel({
   size,
   onClose,
   style,
+  menuClassName,
 }: {
   items: ActionItem[];
   size: ActionMenuSize;
   onClose: () => void;
   style?: React.CSSProperties;
+  menuClassName?: string;
 }) {
   const s = sizeConfig[size];
   return (
     <div
-      className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg shadow-black/10 dark:shadow-black/40 overflow-hidden"
+      className={`bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg shadow-black/10 dark:shadow-black/40 overflow-hidden ${menuClassName ?? ""}`}
       style={{ minWidth: s.menuWidth, ...style }}
     >
       <div className="p-1">
@@ -396,11 +398,13 @@ function ActionMenuInner({
   size,
   trigger,
   align,
+  menuClassName,
 }: {
   items: ActionItem[];
   size: ActionMenuSize;
   trigger: React.ReactNode;
   align: MenuAlign;
+  menuClassName?: string;
 }) {
   const { state, toggle, close } = useActionMenuContext();
   const s = sizeConfig[size];
@@ -495,7 +499,12 @@ function ActionMenuInner({
                 minWidth: s.menuWidth,
               }}
             >
-              <MenuPanel items={items} size={size} onClose={close} />
+              <MenuPanel
+                items={items}
+                size={size}
+                onClose={close}
+                menuClassName={menuClassName}
+              />
             </motion.div>
           </AnimatePresence>,
           document.body,
@@ -513,6 +522,7 @@ export interface ActionMenuProps extends Omit<
   size?: ActionMenuSize;
   align?: MenuAlign;
   className?: string;
+  menuClassName?: string;
 }
 
 export function ActionMenu({

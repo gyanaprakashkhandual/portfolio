@@ -162,8 +162,9 @@ export default function Navbar() {
               {mounted && (
                 <ActionMenu
                   items={themeItems}
-                  align="bottom-left"
+                  align="bottom-right"
                   size="md"
+                  menuClassName="!min-w-[100px]"
                   trigger={
                     <motion.button
                       whileHover={{ scale: 1.08 }}
