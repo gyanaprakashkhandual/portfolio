@@ -18,8 +18,8 @@ import Image from "next/image";
 import { Tooltip } from "@/ui/components/Tooltip.ui";
 
 const navItems = [
-  { icon: User, label: "About Me", href: "/about" },
-  { icon: Share2, label: "Socials", href: "/socials" },
+  { icon: User, label: "About Me", href: "/about/about-me" },
+  { icon: Share2, label: "Socials", href: "/about/socials" },
   { icon: Github, label: "GitHub", href: "/about/github" },
   { icon: Workflow, label: "Experience", href: "/about/experience" },
   { icon: FolderKanban, label: "Projects", href: "/about/projects" },
