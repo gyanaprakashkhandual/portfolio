@@ -11,23 +11,13 @@ import {
   GraduationCap,
   BadgeCheck,
   Trophy,
-  Music2,
-  Film,
-  PenLine,
-  Shirt,
-  Compass,
-  Dumbbell,
-  BookOpen,
-  Heart,
   Camera,
-  Mic2,
 } from "lucide-react";
 import Image from "next/image";
 import { Tooltip } from "@/ui/components/Tooltip.ui";
 
 const navItems = [
   { icon: User, label: "About Me", href: "/about" },
-  { icon: Heart, label: "Bio", href: "/bio" },
   { icon: Share2, label: "Socials", href: "/socials" },
   { icon: Github, label: "GitHub", href: "/github" },
   { icon: FolderKanban, label: "Projects", href: "/projects" },
@@ -35,15 +25,7 @@ const navItems = [
   { icon: GraduationCap, label: "Education", href: "/education" },
   { icon: BadgeCheck, label: "Certifications", href: "/certifications" },
   { icon: Trophy, label: "Achievements", href: "/achievements" },
-  { icon: Music2, label: "Music", href: "/music" },
-  { icon: Film, label: "Acting", href: "/acting" },
-  { icon: PenLine, label: "Writing", href: "/writing" },
-  { icon: Shirt, label: "Modeling", href: "/modeling" },
-  { icon: Compass, label: "Adventures", href: "/adventures" },
-  { icon: Dumbbell, label: "Athletics", href: "/athletics" },
-  { icon: BookOpen, label: "Blog", href: "/blog" },
   { icon: Camera, label: "Gallery", href: "/gallery" },
-  { icon: Mic2, label: "Podcasts", href: "/podcasts" },
 ];
 
 export default function ActivityBar() {
@@ -53,21 +35,19 @@ export default function ActivityBar() {
   return (
     <aside className="h-[calc(100vh-56px)] sticky top-14 w-14 flex flex-col items-center py-3 bg-white dark:bg-zinc-900 border-r border-zinc-100 dark:border-zinc-800 z-40 select-none shrink-0 overflow-hidden">
       <div className="flex flex-col items-center w-full px-2.5 mb-2.5 shrink-0">
-        <Tooltip>
-          <div className="relative w-8 h-8 rounded-full overflow-hidden ring-1 ring-zinc-200 dark:ring-zinc-700 cursor-pointer shrink-0 transition-all duration-150 hover:ring-2 hover:ring-zinc-400 dark:hover:ring-zinc-500">
-            <Image
-              src="https://res.cloudinary.com/dvytvjplt/image/upload/v1765866608/profile_pricture_oemv94.jpg"
-              alt="Profile"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </Tooltip>
+        <div className="relative w-8 h-8 rounded-full overflow-hidden cursor-pointer shrink-0 transition-all duration-150 hover:ring-2 hover:ring-zinc-400 dark:hover:ring-zinc-500">
+          <Image
+            src="https://res.cloudinary.com/dvytvjplt/image/upload/v1765866608/profile_pricture_oemv94.jpg"
+            alt="Profile"
+            fill
+            className="object-cover"
+          />
+        </div>
       </div>
 
       <div className="w-7 h-px bg-zinc-100 dark:bg-zinc-800 mb-2.5 shrink-0" />
 
-      <nav className="flex flex-col items-center gap-0.5 w-full px-1.5 flex-1 overflow-y-auto overflow-x-hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      <nav className="flex flex-col items-center gap-0.5 w-full px-1.5 shrink-0">
         {navItems.map(({ icon: Icon, label, href }, index) => {
           const isActive = pathname === href;
 
@@ -83,34 +63,34 @@ export default function ActivityBar() {
               }}
               className="w-full"
             >
-                <Tooltip content={label} position="right" showArrow>
-              <button
-                onClick={() => router.push(href)}
-                aria-label={label}
-                className={[
-                  "relative w-full flex items-center justify-center rounded-md p-2 transition-all duration-100 cursor-pointer outline-none",
-                  isActive
-                    ? "bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900"
-                    : "text-zinc-400 dark:text-zinc-500 hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:text-zinc-800 dark:hover:text-zinc-200",
-                ].join(" ")}
-              >
-                {isActive && (
-                  <motion.span
-                    layoutId="activeIndicator"
-                    className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-4 rounded-r-full bg-zinc-900 dark:bg-zinc-100"
-                    transition={{
-                      type: "spring",
-                      stiffness: 500,
-                      damping: 35,
-                    }}
+              <Tooltip content={label} position="right" showArrow>
+                <button
+                  onClick={() => router.push(href)}
+                  aria-label={label}
+                  className={[
+                    "relative w-full flex items-center justify-center rounded-md p-2 transition-all duration-100 cursor-pointer outline-none",
+                    isActive
+                      ? "bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900"
+                      : "text-zinc-400 dark:text-zinc-500 hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:text-zinc-800 dark:hover:text-zinc-200",
+                  ].join(" ")}
+                >
+                  {isActive && (
+                    <motion.span
+                      layoutId="activeIndicator"
+                      className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-4 rounded-r-full bg-zinc-900 dark:bg-zinc-100"
+                      transition={{
+                        type: "spring",
+                        stiffness: 500,
+                        damping: 35,
+                      }}
+                    />
+                  )}
+                  <Icon
+                    size={16}
+                    strokeWidth={isActive ? 2.2 : 1.7}
+                    className="shrink-0"
                   />
-                )}
-                <Icon
-                  size={16}
-                  strokeWidth={isActive ? 2.2 : 1.7}
-                  className="shrink-0"
-                />
-              </button>
+                </button>
               </Tooltip>
             </motion.div>
           );
